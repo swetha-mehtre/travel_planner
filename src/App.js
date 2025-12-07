@@ -744,9 +744,9 @@ function App() {
           overflow-y: auto;
           max-height: 100%;
           background-image: url('${process.env.PUBLIC_URL}/images.jpeg');
-          background-size: 300px 300px;
-          background-position: top left;
-          background-repeat: repeat;
+          background-size: cover;
+          background-position: center;
+          background-repeat: no-repeat;
           background-attachment: local;
           position: relative;
           border-radius: 1.5rem;
@@ -760,7 +760,7 @@ function App() {
           left: 0;
           right: 0;
           bottom: 0;
-          background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(245, 166, 35, 0.08) 100%);
+          background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(245, 240, 232, 0.12) 100%);
           pointer-events: none;
           border-radius: 1.5rem;
         }
@@ -1179,18 +1179,20 @@ function App() {
             border: 2px solid #8dd3ff;
           }
         .interests-label {
-          font-size: 1.3rem;
-          font-weight: 900;
-          background: linear-gradient(135deg, #F5A623 0%, #4A90E2 100%);
+          font-size: 1.5rem;
+          font-weight: 950;
+          color: #1a1a2e;
+          background: linear-gradient(135deg, #00ff88 0%, #00d9ff 50%, #ff006e 100%);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
           text-transform: uppercase;
-          letter-spacing: 1.5px;
+          letter-spacing: 2px;
           display: block;
           margin-bottom: 1.5rem;
-          text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
           text-align: center;
+          text-shadow: 0 0 20px rgba(0, 255, 136, 0.3), 0 0 10px rgba(0, 217, 255, 0.3);
+          filter: drop-shadow(0 0 8px rgba(255, 0, 110, 0.2));
         }
         .interests-grid {
           display: grid;
