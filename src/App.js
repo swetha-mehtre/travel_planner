@@ -728,11 +728,7 @@ function App() {
           grid-row: 1;
           overflow-y: auto;
           max-height: 100%;
-          background-image: url('${process.env.PUBLIC_URL}/images.jpeg');
-          background-size: cover;
-          background-position: center;
-          background-repeat: no-repeat;
-          background-attachment: local;
+          background: #ffffff;
           position: relative;
           border-radius: 1.5rem;
           box-shadow: 0 15px 40px rgba(245, 166, 35, 0.25);
@@ -745,7 +741,7 @@ function App() {
           left: 0;
           right: 0;
           bottom: 0;
-          background: linear-gradient(180deg, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.70) 50%, rgba(255, 255, 255, 0.75) 100%);
+          background: transparent;
           pointer-events: none;
           border-radius: 1.5rem;
         }
@@ -1005,15 +1001,11 @@ function App() {
         .interests-section {
           margin-bottom: 1.5rem;
           padding: 1.5rem;
-          background-image: url('${process.env.PUBLIC_URL}/images.jpeg');
-          background-size: 300px 300px;
-          background-repeat: repeat;
-          background-attachment: local;
+          background: linear-gradient(135deg, rgba(80, 227, 194, 0.12) 0%, rgba(74, 144, 226, 0.12) 100%);
           border-radius: 1rem;
           border: 3px solid #50E3C2;
           position: relative;
           box-shadow: 0 10px 25px rgba(80, 227, 194, 0.2);
-          background-blend-mode: overlay;
         }
         .interests-section::before {
           content: '';
@@ -1157,13 +1149,20 @@ function App() {
           border-color: #F5A623;
           box-shadow: 0 0 0 3px rgba(245, 166, 35, 0.15);
         }
-          .api-keys-section {
-            margin-bottom: 2rem;
-            padding: 1.5rem;
-            background: linear-gradient(135deg, #eff6ff 0%, #e6f3ff 100%);
-            border-radius: 0.875rem;
-            border: 2px solid #8dd3ff;
-          }
+        .api-keys-section {
+          margin-bottom: 2rem;
+          padding: 1.5rem;
+          background: linear-gradient(135deg, rgba(74, 144, 226, 0.08) 0%, rgba(80, 227, 194, 0.08) 100%);
+          border-radius: 0.875rem;
+          border: 2px solid #F5A623;
+          box-shadow: 0 4px 12px rgba(245, 166, 35, 0.1);
+        }
+        .api-keys-section h4 {
+          margin: 0 0 1rem 0;
+          font-size: 1.1rem;
+          font-weight: 700;
+          color: #1a202c;
+        }
         .interests-label {
           font-size: 1.6rem;
           font-weight: 950;
