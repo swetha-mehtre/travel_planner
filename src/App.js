@@ -568,15 +568,19 @@ function App() {
           flex-direction: column;
         }
         .brand-title {
-          font-size: 1.5rem;
-          font-weight: bold;
+          font-size: 1.8rem;
+          font-weight: 900;
           line-height: 1;
-          color: #1e2a44;
+          background: linear-gradient(135deg, #7c3aed 0%, #06b6d4 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
         }
         .brand-subtitle {
-          font-size: 0.875rem;
-          color: #6c757d;
+          font-size: 1rem;
+          color: #06b6d4;
           line-height: 1;
+          font-weight: 600;
         }
         .login-box {
           background: linear-gradient(135deg, #ffffff 0%, #f8faff 100%);
@@ -592,10 +596,13 @@ function App() {
         .login-box h2 {
           margin: 0 0 1.5rem 0;
           padding: 0;
-          color: #1a202c;
+          background: linear-gradient(135deg, #7c3aed 0%, #06b6d4 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
           text-align: left;
-          font-size: 1.5rem;
-          font-weight: 700;
+          font-size: 2rem;
+          font-weight: 800;
         }
         .trip-box {
           position: relative;
@@ -603,7 +610,7 @@ function App() {
         .trip-box input {
           width: 100%;
           padding: 0.75rem 0;
-          font-size: 0.95rem;
+          font-size: 1.1rem;
           color: #1a202c;
           margin-bottom: 1.5rem;
           border: none;
@@ -625,10 +632,11 @@ function App() {
           top: 0;
           left: 0;
           padding: 0.75rem 0;
-          font-size: 0.9rem;
+          font-size: 1rem;
           color: #64748b;
           pointer-events: none;
           transition: .3s;
+          font-weight: 600;
         }
         .trip-box input:focus ~ label,
         .trip-box input:valid ~ label {
@@ -675,18 +683,26 @@ function App() {
           position: relative;
           display: inline-block;
           width: 100%;
-          padding: 0.75rem 1.5rem;
+          padding: 1rem 1.5rem;
           color: #fff;
-          font-size: 1rem;
+          font-size: 1.2rem;
+          font-weight: 700;
           text-decoration: none;
           text-transform: uppercase;
           overflow: hidden;
           transition: .3s;
           margin-top: 1.5rem;
-          letter-spacing: 1px;
-          background: linear-gradient(135deg, #0ea5e9 0%, #06b6d4 100%);
+          letter-spacing: 2px;
+          background: linear-gradient(135deg, #7c3aed 0%, #06b6d4 100%);
           border: none;
           cursor: pointer;
+          border-radius: 0.5rem;
+          box-shadow: 0 4px 15px rgba(124, 58, 237, 0.3);
+        }
+        .submit-button:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 6px 20px rgba(124, 58, 237, 0.4);
+        }
           border-radius: 0.5rem;
           font-weight: 600;
           box-shadow: 0 4px 12px rgba(14, 165, 233, 0.3);
@@ -718,14 +734,20 @@ function App() {
           border-bottom: 1px solid #394867;
         }
         .itinerary-header h3 {
-          color: #03e9f4;
-          margin: 0 0 5px 0;
-          font-size: 1.5rem;
+          background: linear-gradient(135deg, #7c3aed 0%, #06b6d4 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+          margin: 0 0 0.5rem 0;
+          font-size: 2rem;
+          font-weight: 800;
         }
         .itinerary-dates, .itinerary-budget {
-          color: #a0aec0;
-          margin: 0 0 5px 0;
-          font-size: 0.9rem;
+          color: #64748b;
+          margin: 0 0 0.25rem 0;
+          font-size: 1rem;
+          font-weight: 500;
+        }
         }
         .itinerary-day {
           margin-bottom: 25px;
@@ -733,10 +755,10 @@ function App() {
           border-bottom: 1px solid #394867;
         }
         .day-title {
-          color: #fff;
-          margin: 0 0 15px 0;
-          font-size: 1.2rem;
-          font-weight: bold;
+          color: #7c3aed;
+          margin: 0 0 1rem 0;
+          font-size: 1.4rem;
+          font-weight: 800;
         }
         .day-schedule {
           display: flex;
@@ -747,48 +769,49 @@ function App() {
           display: flex;
           align-items: flex-start;
           gap: 15px;
-          padding: 1rem;
-          background: #f8faff;
-          border-radius: 0.5rem;
-          border-left: 4px solid #06b6d4;
+          padding: 1.25rem;
+          background: linear-gradient(135deg, #f0f4ff 0%, #f5faff 100%);
+          border-radius: 0.75rem;
+          border-left: 5px solid #7c3aed;
           cursor: pointer;
-          transition: all 0.2s;
+          transition: all 0.3s;
         }
         .schedule-item:hover {
-          background: #f0f9ff;
-          box-shadow: 0 2px 8px rgba(6, 182, 212, 0.1);
+          background: linear-gradient(135deg, #e9ecff 0%, #f0f6ff 100%);
+          box-shadow: 0 8px 20px rgba(124, 58, 237, 0.15);
+          transform: translateX(4px);
         }
         .schedule-time {
-          min-width: 60px;
-          color: #0ea5e9;
-          font-weight: bold;
-          font-size: 0.9rem;
+          min-width: 80px;
+          color: #06b6d4;
+          font-weight: 800;
+          font-size: 1.1rem;
         }
         .schedule-content {
           flex: 1;
         }
         .activity-name, .meal-name {
-          color: #1a202c;
+          color: #7c3aed;
           margin: 0 0 0.25rem 0;
-          font-size: 0.95rem;
-          font-weight: 600;
+          font-size: 1.1rem;
+          font-weight: 800;
         }
         .meal-name {
-          color: #d97706;
+          color: #f59e0b;
         }
         .activity-description, .meal-description {
           color: #64748b;
           margin: 0 0 0.25rem 0;
-          font-size: 0.85rem;
-          line-height: 1.4;
+          font-size: 1rem;
+          line-height: 1.5;
         }
         .price-tag {
           background: linear-gradient(135deg, #10b981 0%, #059669 100%);
           color: white;
-          padding: 0.25rem 0.5rem;
-          border-radius: 0.25rem;
-          font-size: 0.75rem;
-          font-weight: 700;
+          padding: 0.4rem 0.8rem;
+          border-radius: 0.5rem;
+          font-size: 0.95rem;
+          font-weight: 800;
         }
         .leaflet-popup-content-wrapper {
           background: #ffffff;
