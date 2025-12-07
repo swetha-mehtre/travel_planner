@@ -178,9 +178,48 @@ function TripForm({ onSubmit, disabled }) {
             <label>Number of People</label>
           </div>
         </div>
-        <div className="trip-box">
-          <input type="text" name="interests" required disabled={disabled} />
-          <label>Interests (comma-separated)</label>
+        <div className="interests-section">
+          <label className="interests-label">Trip Interests</label>
+          <div className="interests-grid">
+            <div className="interest-category">
+              <div className="category-title">🏛️ Cultural & Historical</div>
+              <label className="interest-checkbox"><input type="checkbox" name="interests" value="landmarks" disabled={disabled} /> Landmarks & Monuments</label>
+              <label className="interest-checkbox"><input type="checkbox" name="interests" value="museums" disabled={disabled} /> Museums & Heritage</label>
+              <label className="interest-checkbox"><input type="checkbox" name="interests" value="traditions" disabled={disabled} /> Local Traditions</label>
+            </div>
+            <div className="interest-category">
+              <div className="category-title">🍲 Food & Culinary</div>
+              <label className="interest-checkbox"><input type="checkbox" name="interests" value="street_food" disabled={disabled} /> Street Food</label>
+              <label className="interest-checkbox"><input type="checkbox" name="interests" value="fine_dining" disabled={disabled} /> Fine Dining</label>
+              <label className="interest-checkbox"><input type="checkbox" name="interests" value="cooking_classes" disabled={disabled} /> Cooking Classes</label>
+              <label className="interest-checkbox"><input type="checkbox" name="interests" value="wine_tasting" disabled={disabled} /> Wine & Tasting</label>
+            </div>
+            <div className="interest-category">
+              <div className="category-title">🏞️ Adventure & Outdoors</div>
+              <label className="interest-checkbox"><input type="checkbox" name="interests" value="hiking" disabled={disabled} /> Hiking & Trekking</label>
+              <label className="interest-checkbox"><input type="checkbox" name="interests" value="water_sports" disabled={disabled} /> Water Sports</label>
+              <label className="interest-checkbox"><input type="checkbox" name="interests" value="wildlife" disabled={disabled} /> Wildlife & Safari</label>
+              <label className="interest-checkbox"><input type="checkbox" name="interests" value="camping" disabled={disabled} /> Camping</label>
+            </div>
+            <div className="interest-category">
+              <div className="category-title">🎨 Creative & Growth</div>
+              <label className="interest-checkbox"><input type="checkbox" name="interests" value="photography" disabled={disabled} /> Photography</label>
+              <label className="interest-checkbox"><input type="checkbox" name="interests" value="art" disabled={disabled} /> Sketching & Art</label>
+              <label className="interest-checkbox"><input type="checkbox" name="interests" value="journaling" disabled={disabled} /> Writing & Journaling</label>
+            </div>
+            <div className="interest-category">
+              <div className="category-title">🛍️ Leisure & Lifestyle</div>
+              <label className="interest-checkbox"><input type="checkbox" name="interests" value="shopping" disabled={disabled} /> Shopping</label>
+              <label className="interest-checkbox"><input type="checkbox" name="interests" value="wellness" disabled={disabled} /> Spa & Wellness</label>
+              <label className="interest-checkbox"><input type="checkbox" name="interests" value="nightlife" disabled={disabled} /> Nightlife & Events</label>
+            </div>
+            <div className="interest-category">
+              <div className="category-title">🚗 Social & Eco</div>
+              <label className="interest-checkbox"><input type="checkbox" name="interests" value="road_trips" disabled={disabled} /> Scenic Road Trips</label>
+              <label className="interest-checkbox"><input type="checkbox" name="interests" value="eco_tourism" disabled={disabled} /> Eco-Tourism</label>
+              <label className="interest-checkbox"><input type="checkbox" name="interests" value="volunteering" disabled={disabled} /> Volunteering</label>
+            </div>
+          </div>
         </div>
         <div className="trip-box">
           <input 
@@ -342,6 +381,10 @@ function App() {
     const budgetAmount = parseFloat(e.target.budget.value);
     
     // Convert to standard format for API (we'll use original amount but track currency)
+    const selectedInterests = Array.from(e.target.querySelectorAll('input[name="interests"]:checked'))
+      .map(checkbox => checkbox.value)
+      .join(', ');
+    
     const formData = {
       destination: e.target.destination.value,
       startDate: e.target.startDate.value,
@@ -349,7 +392,7 @@ function App() {
       budget: budgetAmount,
       currency: currency,
       numberOfPeople: e.target.numberOfPeople.value,
-      interests: e.target.interests.value,
+      interests: selectedInterests || 'general travel',
       groqApiKey: e.target.groqApiKey.value || process.env.REACT_APP_GROQ_API_KEY,
     };
     setLoading(true);
@@ -788,6 +831,65 @@ function App() {
         .api-info {
           font-size: 0.8rem;
           color: #64748b;
+        }
+        .interests-section {
+          margin-bottom: 1.5rem;
+          padding: 1.5rem;
+          background: linear-gradient(135deg, #f8faff 0%, #f0f4ff 100%);
+          border-radius: 1rem;
+          border: 1px solid #e0e7ff;
+        }
+        .interests-label {
+          font-size: 1.1rem;
+          font-weight: 700;
+          color: #7c3aed;
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
+          display: block;
+          margin-bottom: 1.5rem;
+        }
+        .interests-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+          gap: 1.5rem;
+        }
+        .interest-category {
+          background: #ffffff;
+          border-radius: 0.75rem;
+          padding: 1.25rem;
+          border: 1px solid #e0e7ff;
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        }
+        .category-title {
+          font-size: 0.95rem;
+          font-weight: 800;
+          color: #1a202c;
+          margin-bottom: 1rem;
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+        }
+        .interest-checkbox {
+          display: flex;
+          align-items: center;
+          gap: 0.75rem;
+          font-size: 0.95rem;
+          color: #475569;
+          margin-bottom: 0.75rem;
+          cursor: pointer;
+          transition: all 0.2s;
+        }
+        .interest-checkbox:hover {
+          color: #7c3aed;
+        }
+        .interest-checkbox:last-child {
+          margin-bottom: 0;
+        }
+        .interest-checkbox input[type="checkbox"] {
+          width: 18px;
+          height: 18px;
+          cursor: pointer;
+          accent-color: #7c3aed;
         }
         .submit-button {
           position: relative;
