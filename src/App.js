@@ -638,7 +638,7 @@ function App() {
           left: 0;
           right: 0;
           bottom: 0;
-          background: linear-gradient(135deg, rgba(255, 255, 255, 0.88) 0%, rgba(245, 240, 232, 0.90) 100%);
+          background: linear-gradient(135deg, rgba(255, 255, 255, 0.75) 0%, rgba(245, 240, 232, 0.80) 100%);
           pointer-events: none;
           z-index: -1;
         }
@@ -673,18 +673,21 @@ function App() {
         }
         .grid {
           display: grid;
-          grid-template-columns: 350px 1fr;
+          grid-template-columns: 1fr 2fr;
+          grid-template-rows: 1fr;
           gap: 2rem;
-          margin-bottom: 2rem;
+          height: calc(100vh - 100px);
+          margin-bottom: 0;
         }
         @media (max-width: 1024px) {
           .grid {
             grid-template-columns: 1fr;
+            grid-template-rows: auto 1fr;
+            height: auto;
           }
         }
         .map-container-wrapper {
-          height: 70vh;
-          min-height: 500px;
+          height: 100%;
           width: 100%;
           border-radius: 1.5rem;
           box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
@@ -697,7 +700,7 @@ function App() {
         @media (max-width: 1024px) {
           .map-container-wrapper {
             grid-column: 1;
-            grid-row: 1;
+            grid-row: 2;
             height: 60vh;
             min-height: 420px;
           }
@@ -705,16 +708,19 @@ function App() {
         .form-wrapper {
           grid-column: 1;
           grid-row: 1;
+          overflow-y: auto;
+          max-height: 100%;
         }
         @media (max-width: 1024px) {
           .form-wrapper {
             grid-column: 1;
-            grid-row: 2;
+            grid-row: 1;
           }
         }
         .itinerary-section {
-          padding: 1rem 0 2.5rem;
-          grid-column: 1 / -1;
+          padding: 2rem 0;
+          width: 100%;
+          margin-top: 1rem;
         }
         .text-center {
           text-align: center;
