@@ -844,29 +844,24 @@ function App() {
         .login-box h2 {
           margin: 0 0 2rem 0;
           padding: 0;
-          background: linear-gradient(135deg, #7c3aed 0%, #06b6d4 100%);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          background-clip: text;
+          color: #000000;
           text-align: left;
           font-size: 2.2rem;
-          font-weight: 800;
+          font-weight: 900;
           font-family: 'Poppins', sans-serif;
+          letter-spacing: 1px;
         }
         .form-title {
           margin: 0 0 2rem 0;
           padding: 1.5rem 0;
-          background: linear-gradient(135deg, #F5A623 0%, #4A90E2 100%);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          background-clip: text;
+          color: #000000;
           text-align: center;
           font-size: 2.8rem;
           font-weight: 950;
           font-family: 'Poppins', sans-serif;
           letter-spacing: 1.5px;
           text-transform: uppercase;
-          filter: drop-shadow(0 2px 4px rgba(245, 166, 35, 0.3));
+          filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
         }
         .trip-box {
           position: relative;
