@@ -711,7 +711,7 @@ function App() {
           overflow-y: auto;
           max-height: 100%;
           background-image: url('${process.env.PUBLIC_URL}/interests-theme.png');
-          background-size: 400px 400px;
+          background-size: 300px 300px;
           background-position: top left;
           background-repeat: repeat;
           background-attachment: local;
@@ -727,7 +727,7 @@ function App() {
           left: 0;
           right: 0;
           bottom: 0;
-          background: linear-gradient(135deg, rgba(255, 255, 255, 0.20) 0%, rgba(245, 240, 232, 0.25) 100%);
+          background: linear-gradient(135deg, rgba(255, 255, 255, 0.10) 0%, rgba(245, 240, 232, 0.15) 100%);
           pointer-events: none;
           border-radius: 1.5rem;
         }
