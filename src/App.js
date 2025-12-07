@@ -647,30 +647,15 @@ function App() {
           align-items: center;
           justify-content: center;
           padding: 1.5rem 2rem;
-          box-shadow: 0 8px 20px rgba(74, 144, 226, 0.2);
-          background: linear-gradient(135deg, #4A90E2 0%, #50E3C2 100%);
-          border-bottom: none;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+          background: #ffffff;
+          border-bottom: 2px solid #f0f0f0;
           position: relative;
           overflow: hidden;
-        }
-        header::before {
-          content: '';
-          position: absolute;
-          top: -50%;
-          right: -50%;
-          width: 200%;
-          height: 200%;
-          background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
-          animation: shimmer 8s infinite;
-        }
-        @keyframes shimmer {
-          0%, 100% { transform: translate(0, 0); }
-          50% { transform: translate(20px, 20px); }
         }
         header > * {
           position: relative;
           z-index: 1;
-          color: #ffffff;
         }
         .container {
           max-width: 100%;
@@ -760,7 +745,7 @@ function App() {
           left: 0;
           right: 0;
           bottom: 0;
-          background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(245, 240, 232, 0.12) 100%);
+          background: linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0.88) 50%, rgba(255, 255, 255, 0.92) 100%);
           pointer-events: none;
           border-radius: 1.5rem;
         }
@@ -875,21 +860,17 @@ function App() {
         .form-title {
           margin: 0 0 2rem 0;
           padding: 1.5rem 0;
-          background: linear-gradient(135deg, #F5A623 0%, #4A90E2 100%, #50E3C2 100%);
+          background: linear-gradient(135deg, #F5A623 0%, #4A90E2 100%);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
           text-align: center;
-          font-size: 2.5rem;
-          font-weight: 900;
+          font-size: 2.8rem;
+          font-weight: 950;
           font-family: 'Poppins', sans-serif;
-          letter-spacing: 1px;
+          letter-spacing: 1.5px;
           text-transform: uppercase;
-          animation: titleGlow 3s ease-in-out infinite;
-        }
-        @keyframes titleGlow {
-          0%, 100% { text-shadow: 0 0 10px rgba(74, 144, 226, 0.3); }
-          50% { text-shadow: 0 0 20px rgba(245, 166, 35, 0.3); }
+          filter: drop-shadow(0 2px 4px rgba(245, 166, 35, 0.3));
         }
         .trip-box {
           position: relative;
@@ -1179,20 +1160,15 @@ function App() {
             border: 2px solid #8dd3ff;
           }
         .interests-label {
-          font-size: 1.5rem;
+          font-size: 1.6rem;
           font-weight: 950;
-          color: #1a1a2e;
-          background: linear-gradient(135deg, #00ff88 0%, #00d9ff 50%, #ff006e 100%);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          background-clip: text;
+          color: #000000;
           text-transform: uppercase;
-          letter-spacing: 2px;
+          letter-spacing: 2.5px;
           display: block;
           margin-bottom: 1.5rem;
           text-align: center;
-          text-shadow: 0 0 20px rgba(0, 255, 136, 0.3), 0 0 10px rgba(0, 217, 255, 0.3);
-          filter: drop-shadow(0 0 8px rgba(255, 0, 110, 0.2));
+          filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15));
         }
         .interests-grid {
           display: grid;
