@@ -710,6 +710,30 @@ function App() {
           grid-row: 1;
           overflow-y: auto;
           max-height: 100%;
+          background-image: url('${process.env.PUBLIC_URL}/travel-theme.png');
+          background-size: cover;
+          background-position: center;
+          background-attachment: local;
+          position: relative;
+          border-radius: 1.5rem;
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+          border: 2px solid #e0e7ff;
+        }
+        .form-wrapper::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: linear-gradient(135deg, rgba(255, 255, 255, 0.70) 0%, rgba(245, 240, 232, 0.75) 100%);
+          pointer-events: none;
+          border-radius: 1.5rem;
+        }
+        .form-wrapper > * {
+          position: relative;
+          z-index: 1;
+          padding: 1.5rem;
         }
         @media (max-width: 1024px) {
           .form-wrapper {
