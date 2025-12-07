@@ -4,7 +4,7 @@ import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import 'leaflet-routing-machine/dist/leaflet-routing-machine.css';
 import 'leaflet-routing-machine';
-import logo from './assets/logo.png';
+import logo from '../public/favicon.png';
 
 // Fix default Leaflet marker icons
 delete L.Icon.Default.prototype._getIconUrl;
