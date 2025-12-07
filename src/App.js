@@ -266,14 +266,14 @@ function Brand({ compact }) {
     <div className="brand">
       <img
         src={logo}
-        alt="WanderMind Logo"
+        alt="Musafir Not Bhatak Logo"
         className="brand-logo"
         onError={(e) => { e.target.src = 'https://via.placeholder.com/40'; }}
       />
       {!compact && (
         <div className="brand-text">
-          <span className="brand-title">WanderMind</span>
-          <span className="brand-subtitle">Smart Trip Planner</span>
+          <span className="brand-title">Musafir Not Bhatak</span>
+          <span className="brand-subtitle">AI Travel Planner</span>
         </div>
       )}
     </div>
