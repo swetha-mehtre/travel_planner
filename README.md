@@ -1,68 +1,151 @@
-# WanderMind
+# 🌍 WanderMind - Musafir Not Bhatak
 
-WanderMind is an AI-powered travel itinerary generator that transforms your trip planning experience into a seamless, personalized adventure. Whether you're chasing hidden gems or iconic landmarks, WanderMind crafts tailor-made itineraries based on your unique preferences.
+An AI-powered travel itinerary planner that transforms your trip planning experience into a seamless, personalized adventure. Discover destinations, plan trips, and create unforgettable journeys.
 
-## 🚀 Try It Now!
+## ✨ Key Features
 
-Visit [WanderMind](*) to plan your next adventure. You'll need a Groq API key to get started - get one for free at [Groq Console](https://console.groq.com/keys).
+- 🗺️ **Interactive Map** - Visualize destinations on an interactive map with routing and directions
+- 🤖 **AI-Powered Itineraries** - Generate detailed travel plans using Groq AI or Google Gemini
+- 📍 **Multi-Stop Planning** - Plot multiple destinations and view optimal routes
+- 🏷️ **Interest-Based Recommendations** - Filter by Landmarks, Food, Culture, Adventure, Shopping, and Nature
+- 💰 **Budget Tracking** - Multi-currency support with cost breakdown
+- 📋 **Customizable Plans** - Add notes, preferences, and special requests
+- 🎯 **Smart Routing** - Automatic route calculation between destinations
 
-## ✨ Features
+## 🎨 Modern Design
 
-- Hyper-Personalized Planning
-    - Customize your journey by selecting destination, travel dates, budget, group size, and interests—from food tours to nature hikes.
+- Clean, professional UI with vibrant color theme
+- Responsive grid layout with adjustable panels
+- Light gradient backgrounds for visual appeal
+- Smooth animations and professional typography
+- Manually adjustable form and map panels
 
-- Interactive Mapping
-    - Explore your route with dynamic maps featuring location pins, optimized paths, and real-time navigation powered by OpenStreetMap.
+## 🚀 Quick Start
 
-- Smart Daily Schedules
-    - Receive detailed day-by-day plans including activities, meal suggestions, rest periods, and local tips—adjustable on the fly.
+### Prerequisites
 
-- Conversational Customization 
-    - Modify any part of your itinerary through an intuitive AI chat interface. Want to swap a museum visit for a beach day? Just ask.
+- Node.js v14+
+- npm or yarn
 
-- Transparent Cost Breakdown
-    - Get clear estimates for accommodation, transport, meals, and activities—so you can travel smart without surprises.
+### Installation
 
-- Real-Time Integration
-    - Embedded links for bookings, directions, and reviews ensure your itinerary is not just a plan, but a launchpad.
+```bash
+# Clone repository
+git clone https://github.com/swetha-mehtre/travel_planner.git
+cd travel_planner
+
+# Install dependencies
+npm install
+
+# Start development server
+npm start
+```
+
+The app will open at `http://localhost:3000`
 
 ## 🔑 API Setup
 
-WanderMind leverages the Groq API to generate personalized travel itineraries.
+1. Get your **Groq API key** from [console.groq.com](https://console.groq.com)
+2. (Optional) Get **Google Gemini API key** from [Google AI Studio](https://aistudio.google.com)
+3. Enter keys in the app settings
 
-To get started:
-1. Go to the [Groq Console](https://console.groq.com/keys)
-2. Sign up for an account
-3. Generate a new API key
-4. Enter the key in WanderMind to build your itinerary
+**Note**: API keys are stored locally in your browser and never sent to external servers.
 
-Your API key is stored locally in your browser and is never sent to our servers. This ensures you have full control over your API usage and costs.
+## 📖 How to Use
 
-## 🛠️ Local Development Setup
+1. **Enter Destination** - Type your travel destination
+2. **Set Dates & Budget** - Choose dates and budget amount
+3. **Select Interests** - Pick activities you enjoy
+4. **Add Notes** - Share preferences or must-see places
+5. **Generate Plan** - Click "Plan Your WanderMind Trip"
+6. **View Map** - See all locations on the interactive map
+7. **Customize** - Edit and adjust your itinerary as needed
 
-1. Clone the repository:
-```bash
-git clone https://github.com/rixscx/WanderMind.git
-cd WanderMind
+## 🛠️ Tech Stack
+
+- **Frontend**: React.js with Leaflet.js
+- **AI APIs**: Groq (primary) / Google Gemini (fallback)
+- **Mapping**: OpenStreetMap & Leaflet Routing Machine
+- **Styling**: CSS with gradients and animations
+- **State**: React Hooks
+
+## 📁 Project Structure
+
+```
+src/
+├── App.js                 # Main component
+├── components/
+│   ├── TripForm.js       # Travel planning form
+│   ├── TripMap.js        # Interactive map
+│   └── ItineraryDisplay.js # Trip itinerary view
+├── api/
+│   └── modifyEvent.js
+├── utils/
+│   ├── llm.js            # AI API integration
+│   └── factChecker.js
+└── index.js
 ```
 
-2. Install dependencies:
-```bash
+## 🌈 Color Scheme
+
+- **Sky Blue** (#4A90E2) - Primary, freedom & travel
+- **Sunset Orange** (#F5A623) - Secondary, warmth & energy
+- **Forest Green** (#50E3C2) - Accent, nature & adventure
+- **Black** (#000000) - Professional text
+
+## 📱 Layout
+
+- **Left Panel (1/3)**: Trip planning form with interests
+- **Right Panel (2/3)**: Interactive map with destinations
+- **Bottom (Full-width)**: Detailed itinerary display
+
+Panels are manually adjustable for custom viewing.
+
+## 🐛 Troubleshooting
+
+| Issue                 | Solution                                               |
+| --------------------- | ------------------------------------------------------ |
+| Map not loading       | Check internet connection and browser console          |
+| API errors            | Verify API key, check rate limits, try alternative API |
+| Coordinates not found | Use full city name with country                        |
+
+## 📄 License
+
+Open source - available for personal and educational use.
+
+## 👤 Author
+
+**Swetha Mehtre**  
+GitHub: [@swetha-mehtre](https://github.com/swetha-mehtre)
+
+## 🙏 Credits
+
+- Leaflet.js for mapping
+- Groq & Google for AI
+- OpenStreetMap community
+- React community
+
+---
+
+**Start your next adventure with WanderMind!** ✈️🌍
+
+Made with ❤️ by Swetha Mehtre
 npm install
-```
+
+````
 
 3. Start the development server:
 ```bash
 npm start
-```
+````
 
 The application will be available at `http://localhost:3000`
 
 4. Create a .env file and add your API key using the env variable (No spaces):
+
 ```Text
 GROQ_API_KEY=
 ```
-
 
 ## 💻 Technologies Used
 
@@ -87,6 +170,7 @@ GROQ_API_KEY=
 - Twitter: [@rixscx](https://x.com/rixscx)
 
 ---
+
 <p align="center">
   Made with ☕️ by rixscx
 </p>
