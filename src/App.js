@@ -480,10 +480,9 @@ function App() {
           border-bottom: 1px solid #e0e7ff;
         }
         .container {
-          max-width: calc(100vw - 2cm);
-          margin-left: 1cm;
-          margin-right: 1cm;
-          padding: 2rem 0;
+          max-width: 100%;
+          margin: 0;
+          padding: 2rem;
         }
         .min-h-screen {
           min-height: 100vh;
@@ -495,15 +494,16 @@ function App() {
           background-color: #fee2e2;
           border: 1px solid #fecaca;
           color: #991b1b;
-          padding: 0.75rem 1rem;
-          border-radius: 0.5rem;
+          padding: 1rem;
+          border-radius: 0.75rem;
           margin-bottom: 1rem;
+          font-weight: 600;
         }
         .grid {
           display: grid;
-          grid-template-columns: 380px 1fr;
-          gap: 1.5rem;
-          height: calc(100vh - 120px);
+          grid-template-columns: 1fr 1fr;
+          gap: 2rem;
+          height: calc(100vh - 140px);
         }
         @media (min-width: 1024px) {
           .grid {
@@ -511,7 +511,7 @@ function App() {
           }
         }
         .space-y-8 > * + * {
-          margin-top: 2rem;
+          margin-top: 0;
         }
         .map-container-wrapper {
           height: 100%;
@@ -525,12 +525,12 @@ function App() {
         .map-container {
           height: 100% !important;
           width: 100%;
-          border-radius: 0.5rem;
+          border-radius: 1rem;
         }
         .leaflet-container {
           height: 100% !important;
           width: 100% !important;
-          border-radius: 0.5rem;
+          border-radius: 1rem;
         }
         .text-center {
           text-align: center;
@@ -600,35 +600,38 @@ function App() {
         }
         .login-box {
           background: linear-gradient(135deg, #ffffff 0%, #f8faff 100%);
-          padding: 2rem;
+          padding: 2.5rem;
           border: 1px solid #e0e7ff;
           box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-          border-radius: 1rem;
+          border-radius: 1.25rem;
           overflow-y: auto;
           max-height: 100%;
           width: 100%;
           box-sizing: border-box;
+          display: flex;
+          flex-direction: column;
         }
         .login-box h2 {
-          margin: 0 0 1.5rem 0;
+          margin: 0 0 2rem 0;
           padding: 0;
           background: linear-gradient(135deg, #7c3aed 0%, #06b6d4 100%);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
           text-align: left;
-          font-size: 2rem;
+          font-size: 2.2rem;
           font-weight: 800;
         }
         .trip-box {
           position: relative;
+          margin-bottom: 1.25rem;
         }
         .trip-box input {
           width: 100%;
           padding: 0.75rem 0;
           font-size: 1.1rem;
           color: #1a202c;
-          margin-bottom: 1.5rem;
+          margin-bottom: 1.75rem;
           border: none;
           border-bottom: 2px solid #cbd5e0;
           outline: none;
@@ -663,10 +666,10 @@ function App() {
           font-weight: 600;
         }
         .date-pair, .budget-pair {
-          display: flex;
-          justify-content: space-between;
-          margin-bottom: 0.5rem;
-          gap: 1rem;
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+          gap: 1.5rem;
+          margin-bottom: 0;
         }
         .date-pair .trip-box, .budget-pair .trip-box {
           width: 100%;
@@ -761,25 +764,29 @@ function App() {
         }
         .itinerary-display {
           background: #ffffff;
-          border-radius: 1rem;
-          padding: 1.5rem;
-          margin-top: 20px;
-          max-height: 600px;
+          border-radius: 1.25rem;
+          padding: 2.5rem;
+          border: 1px solid #e0e7ff;
+          box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+          margin-top: 0;
+          max-height: 100%;
           overflow-y: auto;
+          display: flex;
+          flex-direction: column;
         }
         .itinerary-header {
-          text-align: center;
-          margin-bottom: 20px;
-          padding-bottom: 15px;
-          border-bottom: 1px solid #394867;
+          text-align: left;
+          margin-bottom: 2rem;
+          padding-bottom: 1.5rem;
+          border-bottom: 2px solid #e0e7ff;
         }
         .itinerary-header h3 {
           background: linear-gradient(135deg, #7c3aed 0%, #06b6d4 100%);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
-          margin: 0 0 0.5rem 0;
-          font-size: 2rem;
+          margin: 0 0 0.75rem 0;
+          font-size: 2.2rem;
           font-weight: 800;
         }
         .itinerary-dates, .itinerary-budget {
@@ -790,26 +797,30 @@ function App() {
         }
         }
         .itinerary-day {
-          margin-bottom: 25px;
-          padding-bottom: 15px;
-          border-bottom: 1px solid #394867;
+          margin-bottom: 2rem;
+          padding-bottom: 1.5rem;
+          border-bottom: 1px solid #e0e7ff;
+        }
+        .itinerary-day:last-child {
+          border-bottom: none;
+          margin-bottom: 0;
         }
         .day-title {
           color: #7c3aed;
-          margin: 0 0 1rem 0;
-          font-size: 1.4rem;
+          margin: 0 0 1.25rem 0;
+          font-size: 1.5rem;
           font-weight: 800;
         }
         .day-schedule {
           display: flex;
           flex-direction: column;
-          gap: 15px;
+          gap: 1.25rem;
         }
         .schedule-item {
           display: flex;
           align-items: flex-start;
-          gap: 15px;
-          padding: 1.25rem;
+          gap: 1.25rem;
+          padding: 1.5rem;
           background: linear-gradient(135deg, #f0f4ff 0%, #f5faff 100%);
           border-radius: 0.75rem;
           border-left: 5px solid #7c3aed;
