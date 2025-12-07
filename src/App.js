@@ -141,17 +141,37 @@ function TripForm({ onSubmit, disabled }) {
             <label>End Date</label>
           </div>
         </div>
-        <div className="budget-pair">
-          <div className="trip-box">
-            <input type="number" name="budget" required disabled={disabled} />
-            <label>Budget Amount</label>
+        <div className="budget-section">
+          <div className="budget-input-group">
+            <div className="trip-box">
+              <input type="number" name="budget" required disabled={disabled} />
+              <label>Budget Amount</label>
+            </div>
           </div>
-          <div className="trip-box">
+          <div className="currency-group">
+            <label className="currency-label">Currency Type</label>
             <select name="currency" disabled={disabled} className="currency-select">
-              <option value="USD">USD ($)</option>
-              <option value="INR">INR (₹)</option>
+              <option value="USD">USD - US Dollar ($)</option>
+              <option value="EUR">EUR - Euro (€)</option>
+              <option value="GBP">GBP - British Pound (£)</option>
+              <option value="INR">INR - Indian Rupee (₹)</option>
+              <option value="JPY">JPY - Japanese Yen (¥)</option>
+              <option value="AUD">AUD - Australian Dollar (A$)</option>
+              <option value="CAD">CAD - Canadian Dollar (C$)</option>
+              <option value="CHF">CHF - Swiss Franc (CHF)</option>
+              <option value="CNY">CNY - Chinese Yuan (¥)</option>
+              <option value="SEK">SEK - Swedish Krona (kr)</option>
+              <option value="NZD">NZD - New Zealand Dollar (NZ$)</option>
+              <option value="MXN">MXN - Mexican Peso (Mex$)</option>
+              <option value="SGD">SGD - Singapore Dollar (S$)</option>
+              <option value="HKD">HKD - Hong Kong Dollar (HK$)</option>
+              <option value="NOK">NOK - Norwegian Krone (kr)</option>
+              <option value="KRW">KRW - South Korean Won (₩)</option>
+              <option value="TRY">TRY - Turkish Lira (₺)</option>
+              <option value="BRL">BRL - Brazilian Real (R$)</option>
+              <option value="ZAR">ZAR - South African Rand (R)</option>
+              <option value="AED">AED - UAE Dirham (د.إ)</option>
             </select>
-            <label>Currency</label>
           </div>
           <div className="trip-box">
             <input type="number" name="numberOfPeople" min="1" required disabled={disabled} />
@@ -224,7 +244,30 @@ function Brand({ compact }) {
 function ItineraryDisplay({ itinerary, tripData, onItineraryUpdate, setHighlighted }) {
   if (!itinerary || itinerary.days.length === 0) return null;
 
-  const currencySymbol = tripData?.currency === 'INR' ? '₹' : '$';
+  const currencySymbols = {
+    USD: '$',
+    EUR: '€',
+    GBP: '£',
+    INR: '₹',
+    JPY: '¥',
+    AUD: 'A$',
+    CAD: 'C$',
+    CHF: 'CHF',
+    CNY: '¥',
+    SEK: 'kr',
+    NZD: 'NZ$',
+    MXN: 'Mex$',
+    SGD: 'S$',
+    HKD: 'HK$',
+    NOK: 'kr',
+    KRW: '₩',
+    TRY: '₺',
+    BRL: 'R$',
+    ZAR: 'R',
+    AED: 'د.إ',
+  };
+
+  const currencySymbol = currencySymbols[tripData?.currency] || '$';
 
   return (
     <div className="itinerary-display">
@@ -682,29 +725,53 @@ function App() {
           filter: none;
           cursor: pointer;
         }
+        .budget-section {
+          display: flex;
+          flex-direction: column;
+          gap: 2rem;
+          margin-bottom: 1rem;
+        }
+        .budget-input-group {
+          width: 100%;
+        }
+        .currency-group {
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
+        }
+        .currency-label {
+          font-size: 1rem;
+          font-weight: 700;
+          color: #7c3aed;
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
+        }
         .currency-select {
           width: 100%;
-          padding: 0.75rem 0;
-          font-size: 1.1rem;
+          padding: 1rem;
+          font-size: 1rem;
           color: #1a202c;
-          margin-bottom: 1.5rem;
-          border: none;
-          border-bottom: 2px solid #cbd5e0;
+          background: linear-gradient(135deg, #f8faff 0%, #f0f4ff 100%);
+          border: 2px solid #e0e7ff;
+          border-radius: 0.75rem;
           outline: none;
-          background: transparent;
-          transition: border-color 0.3s;
+          transition: all 0.3s;
           cursor: pointer;
+          font-weight: 600;
         }
         .currency-select:hover {
-          border-bottom-color: #0ea5e9;
+          border-color: #7c3aed;
+          box-shadow: 0 4px 12px rgba(124, 58, 237, 0.1);
         }
         .currency-select:focus {
-          border-bottom-color: #0ea5e9;
+          border-color: #7c3aed;
+          box-shadow: 0 6px 16px rgba(124, 58, 237, 0.2);
         }
         .currency-select option {
           background: #ffffff;
           color: #1a202c;
-          padding: 0.5rem;
+          padding: 0.75rem;
+          font-weight: 500;
         }
         .api-note {
           display: block;
