@@ -875,6 +875,10 @@ function App() {
         .trip-box {
           position: relative;
           margin-bottom: 1.25rem;
+          padding: 1rem;
+          background: linear-gradient(135deg, rgba(74, 144, 226, 0.08) 0%, rgba(80, 227, 194, 0.08) 100%);
+          border-radius: 0.75rem;
+          border-left: 4px solid #F5A623;
         }
         .trip-box input {
           width: 100%;
@@ -1117,9 +1121,9 @@ function App() {
           padding: 0.9rem 1rem;
           font-size: 0.95rem;
           color: #1f2937;
-          border: 2px solid #cbd5e1;
+          border: 2px solid #F5A623;
           border-radius: 0.75rem;
-          background: #ffffff;
+          background: linear-gradient(135deg, rgba(74, 144, 226, 0.08) 0%, rgba(80, 227, 194, 0.08) 100%);
           outline: none;
           resize: vertical;
           min-height: 96px;
@@ -1128,7 +1132,7 @@ function App() {
           transition: all 0.3s ease;
         }
         .extras-textarea:focus {
-          border-color: #6366f1;
+          border-color: #F5A623;
           box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
         }
         .famous-places {
@@ -1143,15 +1147,15 @@ function App() {
           font-size: 0.95rem;
           border: 2px solid #cbd5e1;
           border-radius: 0.75rem;
-          background: #ffffff;
+          background: linear-gradient(135deg, rgba(74, 144, 226, 0.08) 0%, rgba(80, 227, 194, 0.08) 100%);
           color: #1f2937;
           outline: none;
           font-family: 'Poppins', sans-serif;
           transition: all 0.3s ease;
         }
         .famous-select:focus {
-          border-color: #6366f1;
-          box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+          border-color: #F5A623;
+          box-shadow: 0 0 0 3px rgba(245, 166, 35, 0.15);
         }
           .api-keys-section {
             margin-bottom: 2rem;
@@ -1177,10 +1181,17 @@ function App() {
           gap: 1.5rem;
         }
         .interest-category {
-          background: #ffffff;
+          background: linear-gradient(135deg, rgba(245, 166, 35, 0.12) 0%, rgba(80, 227, 194, 0.12) 100%);
           border-radius: 0.75rem;
           padding: 1.25rem;
-          border: 2px solid #e0e7ff;
+          border: 2px solid #F5A623;
+          box-shadow: 0 4px 12px rgba(245, 166, 35, 0.1);
+          transition: all 0.3s ease;
+        }
+        .interest-category:hover {
+          background: linear-gradient(135deg, rgba(245, 166, 35, 0.18) 0%, rgba(80, 227, 194, 0.18) 100%);
+          transform: translateY(-2px);
+          box-shadow: 0 6px 16px rgba(245, 166, 35, 0.15);
         }
         .category-title {
           font-size: 0.95rem;
