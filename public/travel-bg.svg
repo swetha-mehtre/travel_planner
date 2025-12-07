@@ -1,0 +1,148 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1200" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <style>
+      .plane { stroke: #FF6B35; stroke-width: 3; fill: none; }
+      .mountain { stroke: #333; stroke-width: 2; fill: none; }
+      .turtle { fill: #4CAF50; }
+      .tent { stroke: #8B4513; stroke-width: 2; fill: #D2691E; }
+      .wave { stroke: #4A90E2; stroke-width: 3; fill: none; }
+      .text-label { font-family: 'Comic Sans MS', cursive; font-weight: bold; font-size: 24px; fill: #333; opacity: 0.7; }
+      .emoji { font-size: 40px; }
+      .campfire { fill: #FF8C00; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="1200" fill="#FFF9F0"/>
+
+  <!-- Airplane top left -->
+  <g transform="translate(100, 80)">
+    <ellipse cx="0" cy="0" rx="40" ry="20" class="plane"/>
+    <line x1="-30" y1="0" x2="30" y2="0" class="plane"/>
+    <polygon points="35,0 45,-8 45,8" class="plane" fill="#FF6B35"/>
+  </g>
+
+  <!-- "Fly high" text -->
+  <text x="150" y="120" class="text-label">Fly high</text>
+
+  <!-- Mountains -->
+  <g transform="translate(400, 150)">
+    <polygon points="0,-80 -60,40 60,40" class="mountain" fill="none" stroke="#8B7355" stroke-width="2"/>
+    <polygon points="40,-60 -20,40 100,40" class="mountain" fill="none" stroke="#A0826D" stroke-width="2"/>
+  </g>
+
+  <!-- "Dream higher" text -->
+  <text x="900" y="150" class="text-label">Dream higher</text>
+
+  <!-- Backpack -->
+  <g transform="translate(150, 350)">
+    <rect x="-30" y="-40" width="60" height="80" rx="8" fill="#8B4513" stroke="#654321" stroke-width="2"/>
+    <circle cx="-15" cy="-50" r="8" fill="#4169E1"/>
+    <circle cx="15" cy="-50" r="8" fill="#4169E1"/>
+    <line x1="-20" y1="0" x2="20" y2="0" stroke="#654321" stroke-width="1"/>
+  </g>
+
+  <!-- Stamp -->
+  <g transform="translate(300, 320)">
+    <rect x="0" y="0" width="50" height="60" fill="none" stroke="#333" stroke-width="2" stroke-dasharray="5,5"/>
+    <text x="25" y="35" text-anchor="middle" font-size="12" fill="#333">STAMP</text>
+  </g>
+
+  <!-- Camping tent -->
+  <g transform="translate(200, 750)">
+    <polygon points="0,-50 -50,30 50,30" class="tent" stroke="#654321" stroke-width="2"/>
+    <line x1="-50" y1="30" x2="50" y2="30" stroke="#654321" stroke-width="2"/>
+    <line x1="0" y1="-50" x2="0" y2="30" stroke="#654321" stroke-width="2"/>
+  </g>
+
+  <!-- Starry night text and stars -->
+  <text x="100" y="900" class="text-label">Starry Night</text>
+  <circle cx="120" cy="850" r="3" fill="#FFD700"/>
+  <circle cx="150" cy="840" r="3" fill="#FFD700"/>
+  <circle cx="180" cy="860" r="3" fill="#FFD700"/>
+  <circle cx="140" cy="880" r="3" fill="#FFD700"/>
+
+  <!-- Campfire -->
+  <g transform="translate(300, 850)">
+    <polygon points="0,-30 -15,15 15,15" fill="#FF4500"/>
+    <polygon points="0,-25 -10,10 10,10" fill="#FF8C00"/>
+    <polygon points="0,-20 -5,5 5,5" fill="#FFD700"/>
+  </g>
+
+  <!-- Bus/Van -->
+  <g transform="translate(650, 300)">
+    <rect x="-40" y="-25" width="80" height="50" rx="5" fill="none" stroke="#4A90E2" stroke-width="2"/>
+    <circle cx="-25" cy="25" r="8" fill="#333"/>
+    <circle cx="25" cy="25" r="8" fill="#333"/>
+    <rect x="-35" y="-20" width="20" height="20" fill="#87CEEB"/>
+    <rect x="0" y="-20" width="20" height="20" fill="#87CEEB"/>
+  </g>
+
+  <!-- Ocean wave and flamingo -->
+  <g transform="translate(850, 650)">
+    <path d="M 0 0 Q 15 -20 30 0 T 60 0" class="wave"/>
+    <circle cx="40" cy="-80" r="25" fill="#FF69B4"/>
+    <line x1="40" y1="-55" x2="40" y2="-20" stroke="#FF69B4" stroke-width="3"/>
+  </g>
+
+  <!-- "Ocean vibes" text -->
+  <text x="850" y="750" class="text-label">Ocean vibes</text>
+
+  <!-- Map/Travel documents -->
+  <g transform="translate(600, 900)">
+    <rect x="-30" y="-20" width="60" height="40" fill="none" stroke="#8B4513" stroke-width="2"/>
+    <line x1="-20" y1="-10" x2="-10" y2="0" stroke="#FF0000" stroke-width="2"/>
+    <line x1="-10" y1="-10" x2="0" y2="0" stroke="#FF0000" stroke-width="2"/>
+    <circle cx="15" cy="-5" r="3" fill="#FF0000"/>
+  </g>
+
+  <!-- "Take the long way HOME" text -->
+  <text x="400" y="1050" class="text-label" font-size="28">Take the long way HOME</text>
+
+  <!-- Mountain with snow -->
+  <g transform="translate(950, 500)">
+    <polygon points="0,-100 -70,50 70,50" fill="none" stroke="#8B7355" stroke-width="2"/>
+    <polygon points="0,-100 -50,-20 50,-20" fill="#FFF" opacity="0.8"/>
+  </g>
+
+  <!-- Decorative elements -->
+  <circle cx="500" cy="400" r="4" fill="#FFD700"/>
+  <circle cx="550" cy="420" r="4" fill="#FFD700"/>
+  <circle cx="480" cy="450" r="4" fill="#FFD700"/>
+  <circle cx="100" cy="600" r="4" fill="#FF69B4"/>
+  <circle cx="120" cy="620" r="4" fill="#FF69B4"/>
+
+  <!-- Turtle/Sea creature -->
+  <g transform="translate(1000, 900)">
+    <ellipse cx="0" cy="0" rx="35" ry="25" class="turtle"/>
+    <circle cx="0" cy="-25" r="15" class="turtle"/>
+    <circle cx="-20" cy="10" r="6" class="turtle"/>
+    <circle cx="20" cy="10" r="6" class="turtle"/>
+    <circle cx="-15" cy="20" r="5" class="turtle"/>
+    <circle cx="15" cy="20" r="5" class="turtle"/>
+  </g>
+
+  <!-- Joy/Happiness emoji-like face -->
+  <g transform="translate(700, 150)">
+    <circle cx="0" cy="0" r="35" fill="#FFD700" stroke="#FFA500" stroke-width="2"/>
+    <circle cx="-12" cy="-10" r="4" fill="#333"/>
+    <circle cx="12" cy="-10" r="4" fill="#333"/>
+    <path d="M -15 5 Q 0 20 15 5" stroke="#333" stroke-width="2" fill="none"/>
+  </g>
+
+  <!-- "OMG" text -->
+  <text x="750" y="120" class="text-label" font-size="32" font-weight="900">OMG</text>
+
+  <!-- Additional decorative stickers -->
+  <g transform="translate(200, 200)">
+    <text class="emoji">✈️</text>
+  </g>
+
+  <g transform="translate(1100, 400)">
+    <text class="emoji">🏔️</text>
+  </g>
+
+  <g transform="translate(50, 1000)">
+    <text class="emoji">🎯</text>
+  </g>
+</svg>

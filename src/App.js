@@ -622,9 +622,10 @@ function App() {
           height: 100%;
           margin: 0;
           padding: 0;
-          background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1200"><defs><style>.travel-bg{fill:none;stroke:%23999;stroke-width:2}.text-label{font-family:cursive;font-size:16px;fill:%23333}.icon-fill{fill:%23FFB84D}.icon-stroke{stroke:%234A90E2;stroke-width:2.5;fill:none}</style></defs><rect width="1200" height="1200" fill="%23FFF9F0"/><g opacity="0.08"><circle cx="150" cy="150" r="120" class="travel-bg"/><path d="M400 200 L600 150 L550 400 Z" class="travel-bg"/><circle cx="900" cy="300" r="100" class="travel-bg"/><rect x="100" y="700" width="150" height="200" class="travel-bg"/><polygon points="950,700 1050,600 1050,850" class="travel-bg"/><circle cx="500" cy="900" r="80" class="travel-bg"/><path d="M200 400 Q300 500 400 400" class="travel-bg"/><circle cx="700" cy="500" r="90" class="travel-bg"/></g><text x="50" y="100" class="text-label" opacity="0.06">Fly high</text><text x="900" y="150" class="text-label" opacity="0.06">Dream higher</text><text x="600" y="1100" class="text-label" opacity="0.06">Take the long way HOME</text><circle cx="200" cy="250" r="40" class="icon-stroke" opacity="0.1"/><path d="M350 350 L450 300 L430 450 Z" class="icon-stroke" opacity="0.1"/><circle cx="800" cy="200" r="35" class="icon-stroke" opacity="0.1"/><rect x="150" y="800" width="100" height="120" class="icon-stroke" opacity="0.1"/></svg>');
+          background-image: url('${process.env.PUBLIC_URL}/travel-bg.svg');
           background-size: cover;
           background-attachment: fixed;
+          background-position: center;
           background-color: #F5F0E8;
           color: #2d3748;
           font-family: 'Poppins', 'Segoe UI', sans-serif;
@@ -637,7 +638,7 @@ function App() {
           left: 0;
           right: 0;
           bottom: 0;
-          background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(245, 240, 232, 0.98) 100%);
+          background: linear-gradient(135deg, rgba(255, 255, 255, 0.96) 0%, rgba(245, 240, 232, 0.97) 100%);
           pointer-events: none;
           z-index: -1;
         }
