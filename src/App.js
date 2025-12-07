@@ -626,7 +626,7 @@ function App() {
           background-size: cover;
           background-attachment: fixed;
           background-color: #F5F0E8;
-          color: #00ffff;
+          color: #2d3748;
           font-family: 'Poppins', 'Segoe UI', sans-serif;
           position: relative;
         }
@@ -637,7 +637,7 @@ function App() {
           left: 0;
           right: 0;
           bottom: 0;
-          background: linear-gradient(135deg, rgba(10, 14, 39, 0.92) 0%, rgba(26, 22, 51, 0.90) 25%, rgba(45, 27, 61, 0.92) 50%, rgba(26, 38, 71, 0.90) 75%, rgba(13, 25, 41, 0.92) 100%);
+          background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(245, 240, 232, 0.98) 100%);
           pointer-events: none;
           z-index: -1;
         }
@@ -646,9 +646,9 @@ function App() {
           align-items: center;
           justify-content: center;
           padding: 1.5rem 2rem;
-          box-shadow: 0 0 30px rgba(0, 255, 255, 0.3);
-          background: linear-gradient(135deg, #0a0e27 0%, #1e0b3a 25%, #2d1654 50%, #1a1a4d 75%, #0d2d4d 100%);
-          border-bottom: 3px solid #00ffff;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+          background: linear-gradient(135deg, #ffffff 0%, #f8faff 100%);
+          border-bottom: 2px solid #e0e7ff;
         }
         .container {
           max-width: 100%;
@@ -662,9 +662,9 @@ function App() {
           background-color: transparent;
         }
         .error {
-          background: linear-gradient(135deg, #ff006e 0%, #ff4f8b 100%);
-          border: 2px solid #ff1744;
-          color: #ffffff;
+          background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
+          border: 2px solid #fca5a5;
+          color: #991b1b;
           padding: 1rem;
           border-radius: 0.75rem;
           margin-bottom: 1rem;
@@ -686,10 +686,10 @@ function App() {
           min-height: 500px;
           width: 100%;
           border-radius: 1.5rem;
-          box-shadow: 0 0 25px rgba(0, 255, 255, 0.25), inset 0 0 15px rgba(0, 255, 255, 0.1);
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
           overflow: hidden;
-          background: #0a0e27;
-          border: 3px solid #00ffff;
+          background: #ffffff;
+          border: 2px solid #e0e7ff;
           grid-column: 2;
           grid-row: 1;
         }
@@ -770,24 +770,22 @@ function App() {
           font-size: 1.8rem;
           font-weight: 900;
           line-height: 1;
-          background: linear-gradient(135deg, #00ffff 0%, #0088ff 50%, #8800ff 100%);
+          background: linear-gradient(135deg, #7c3aed 0%, #06b6d4 100%);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
-          text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
         }
         .brand-subtitle {
           font-size: 1rem;
-          color: #00ffff;
+          color: #06b6d4;
           line-height: 1;
           font-weight: 600;
-          text-shadow: 0 0 5px rgba(0, 255, 255, 0.4);
         }
         .login-box {
-          background: linear-gradient(135deg, #0a0e27 0%, #1a1633 50%, #2d1b3d 100%);
+          background: linear-gradient(135deg, #ffffff 0%, #f8faff 100%);
           padding: 2.5rem;
-          border: 3px solid #00ffff;
-          box-shadow: 0 0 25px rgba(0, 255, 255, 0.3), inset 0 0 10px rgba(0, 255, 255, 0.05);
+          border: 2px solid #e0e7ff;
+          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
           border-radius: 1.5rem;
           overflow-y: auto;
           max-height: 100%;
@@ -800,7 +798,7 @@ function App() {
         .login-box h2 {
           margin: 0 0 2rem 0;
           padding: 0;
-          background: linear-gradient(135deg, #00ffff 0%, #0088ff 100%);
+          background: linear-gradient(135deg, #7c3aed 0%, #06b6d4 100%);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
@@ -817,24 +815,21 @@ function App() {
           width: 100%;
           padding: 0.75rem 0;
           font-size: 1.1rem;
-          color: #00ffff;
+          color: #1a202c;
           margin-bottom: 1.75rem;
           border: none;
-          border-bottom: 2px solid #0088ff;
+          border-bottom: 2px solid #cbd5e0;
           outline: none;
           background: transparent;
           transition: border-color 0.3s;
         }
         .trip-box input:disabled {
           background: transparent;
-          color: #00ffff;
-          opacity: 0.5;
-          border-bottom-color: #0088ff;
-          border-bottom-color: transparent;
+          color: #a0aec0;
+          border-bottom-color: #e2e8f0;
         }
         .trip-box input:focus {
-          border-bottom-color: #00ffff;
-          box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+          border-bottom-color: #0ea5e9;
         }
         .trip-box label {
           position: absolute;
@@ -842,7 +837,7 @@ function App() {
           left: 0;
           padding: 0.75rem 0;
           font-size: 0.95rem;
-          color: #0088ff;
+          color: #64748b;
           pointer-events: none;
           transition: .3s;
           font-weight: 700;
@@ -852,7 +847,7 @@ function App() {
         .trip-box input:valid ~ label {
           top: -1.5rem;
           left: 0;
-          color: #00ffff;
+          color: #0ea5e9;
           font-size: 0.8rem;
           font-weight: 700;
         }
@@ -890,7 +885,7 @@ function App() {
         .currency-label {
           font-size: 1rem;
           font-weight: 700;
-          color: #00ffff;
+          color: #7c3aed;
           text-transform: uppercase;
           letter-spacing: 0.5px;
         }
@@ -898,9 +893,9 @@ function App() {
           width: 100%;
           padding: 1rem;
           font-size: 1rem;
-          color: #00ffff;
-          background: linear-gradient(135deg, #0a0e27 0%, #1a1633 100%);
-          border: 2px solid #0088ff;
+          color: #1a202c;
+          background: linear-gradient(135deg, #f8faff 0%, #f0f4ff 100%);
+          border: 2px solid #e0e7ff;
           border-radius: 0.75rem;
           outline: none;
           transition: all 0.3s;
@@ -908,16 +903,16 @@ function App() {
           font-weight: 600;
         }
         .currency-select:hover {
-          border-color: #00ffff;
-          box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+          border-color: #7c3aed;
+          box-shadow: 0 4px 12px rgba(124, 58, 237, 0.1);
         }
         .currency-select:focus {
-          border-color: #00ffff;
-          box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+          border-color: #7c3aed;
+          box-shadow: 0 6px 16px rgba(124, 58, 237, 0.2);
         }
         .currency-select option {
-          background: #0a0e27;
-          color: #00ffff;
+          background: #ffffff;
+          color: #1a202c;
           padding: 0.75rem;
           font-weight: 500;
         }
@@ -925,38 +920,37 @@ function App() {
           display: block;
           margin-top: 1rem;
           font-size: 0.8rem;
-          color: #0088ff;
+          color: #64748b;
         }
         .api-link {
-          color: #00ffff;
+          color: #0ea5e9;
           text-decoration: underline;
           margin-right: 0.5rem;
           font-weight: 600;
         }
         .api-info {
           font-size: 0.8rem;
-          color: #0088ff;
+          color: #64748b;
         }
         .interests-section {
           margin-bottom: 1.5rem;
           padding: 1.5rem;
-          background: linear-gradient(135deg, #0a0e27 0%, #1a1633 100%);
+          background: linear-gradient(135deg, #f8faff 0%, #f0f4ff 100%);
           border-radius: 1rem;
-          border: 2px solid #0088ff;
-          box-shadow: 0 0 15px rgba(0, 136, 255, 0.2);
+          border: 2px solid #e0e7ff;
         }
         .api-provider-section {
           margin-bottom: 2rem;
           padding: 1.5rem;
-          background: linear-gradient(135deg, #1a1633 0%, #2d1b3d 100%);
+          background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
           border-radius: 0.875rem;
-          border: 2px solid #8800ff;
-          box-shadow: 0 0 20px rgba(136, 0, 255, 0.25);
+          border: 2px solid #fcd34d;
+          box-shadow: 0 4px 12px rgba(251, 191, 36, 0.2);
         }
         .api-provider-label {
           font-size: 0.9rem;
           font-weight: 800;
-          color: #00ffff;
+          color: #92400e;
           text-transform: uppercase;
           letter-spacing: 0.8px;
           display: block;
@@ -976,8 +970,8 @@ function App() {
           align-items: center;
           gap: 0.65rem;
           padding: 1.4rem;
-          background: linear-gradient(135deg, #1a1633 0%, #0a0e27 100%);
-          border: 2px solid #0088ff;
+          background: #fffef9;
+          border: 2px solid #fcd34d;
           border-radius: 0.9rem;
           cursor: pointer;
           transition: all 0.3s ease;
@@ -986,16 +980,16 @@ function App() {
           text-align: center;
         }
         .api-option:hover {
-          background: linear-gradient(135deg, #2d1b3d 0%, #1a1633 100%);
-          border-color: #00ffff;
-          box-shadow: 0 0 20px rgba(0, 255, 255, 0.4);
-          transform: translateY(-3px) scale(1.02);
+          background: #fff4d7;
+          border-color: #f59e0b;
+          box-shadow: 0 4px 12px rgba(245, 158, 11, 0.2);
+          transform: translateY(-3px) scale(1.01);
         }
         .api-option input[type="radio"] {
           width: 22px;
           height: 22px;
           cursor: pointer;
-          accent-color: #00ffff;
+          accent-color: #d97706;
           flex-shrink: 0;
           margin: 0;
         }
@@ -1007,27 +1001,26 @@ function App() {
         .option-title {
           font-size: 1.05rem;
           font-weight: 800;
-          color: #00ffff;
+          color: #1f2937;
           font-family: 'Poppins', sans-serif;
         }
         .option-desc {
           font-size: 0.9rem;
-          color: #0088ff;
+          color: #b45309;
           font-weight: 600;
           font-family: 'Poppins', sans-serif;
         }
         .extras-section {
           margin-bottom: 1.75rem;
           padding: 1.5rem;
-          background: linear-gradient(135deg, #0a0e27 0%, #1a1633 100%);
+          background: linear-gradient(135deg, #f8faff 0%, #eef2ff 100%);
           border-radius: 0.875rem;
-          border: 2px solid #0088ff;
-          box-shadow: 0 0 15px rgba(0, 136, 255, 0.2);
+          border: 2px solid #e0e7ff;
         }
         .extras-label {
           font-size: 0.95rem;
           font-weight: 800;
-          color: #00ffff;
+          color: #1e3a8a;
           display: block;
           margin-bottom: 0.75rem;
           font-family: 'Poppins', sans-serif;
@@ -1036,10 +1029,10 @@ function App() {
           width: 100%;
           padding: 0.9rem 1rem;
           font-size: 0.95rem;
-          color: #00ffff;
-          border: 2px solid #0088ff;
+          color: #1f2937;
+          border: 2px solid #cbd5e1;
           border-radius: 0.75rem;
-          background: #0a0e27;
+          background: #ffffff;
           outline: none;
           resize: vertical;
           min-height: 96px;
@@ -1048,8 +1041,8 @@ function App() {
           transition: all 0.3s ease;
         }
         .extras-textarea:focus {
-          border-color: #00ffff;
-          box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+          border-color: #6366f1;
+          box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
         }
         .famous-places {
           margin-top: 1rem;
@@ -1061,17 +1054,17 @@ function App() {
           width: 100%;
           padding: 0.85rem 1rem;
           font-size: 0.95rem;
-          border: 2px solid #0088ff;
+          border: 2px solid #cbd5e1;
           border-radius: 0.75rem;
-          background: #0a0e27;
-          color: #00ffff;
+          background: #ffffff;
+          color: #1f2937;
           outline: none;
           font-family: 'Poppins', sans-serif;
           transition: all 0.3s ease;
         }
         .famous-select:focus {
-          border-color: #00ffff;
-          box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+          border-color: #6366f1;
+          box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
         }
           .api-keys-section {
             margin-bottom: 2rem;
@@ -1083,7 +1076,7 @@ function App() {
         .interests-label {
           font-size: 1.1rem;
           font-weight: 700;
-          color: #00ffff;
+          color: #7c3aed;
           text-transform: uppercase;
           letter-spacing: 0.5px;
           display: block;
@@ -1095,16 +1088,15 @@ function App() {
           gap: 1.5rem;
         }
         .interest-category {
-          background: linear-gradient(135deg, #1a1633 0%, #0a0e27 100%);
+          background: #ffffff;
           border-radius: 0.75rem;
           padding: 1.25rem;
-          border: 2px solid #0088ff;
-          box-shadow: 0 0 15px rgba(0, 136, 255, 0.2);
+          border: 2px solid #e0e7ff;
         }
         .category-title {
           font-size: 0.95rem;
           font-weight: 800;
-          color: #00ffff;
+          color: #1a202c;
           margin-bottom: 1rem;
           display: flex;
           align-items: center;
@@ -1115,14 +1107,13 @@ function App() {
           align-items: center;
           gap: 0.75rem;
           font-size: 0.95rem;
-          color: #00ffff;
+          color: #475569;
           margin-bottom: 0.75rem;
           cursor: pointer;
           transition: all 0.2s;
         }
         .interest-checkbox:hover {
-          color: #00ffff;
-          text-shadow: 0 0 8px rgba(0, 255, 255, 0.5);
+          color: #7c3aed;
         }
         .interest-checkbox:last-child {
           margin-bottom: 0;
@@ -1131,14 +1122,14 @@ function App() {
           width: 18px;
           height: 18px;
           cursor: pointer;
-          accent-color: #00ffff;
+          accent-color: #7c3aed;
         }
         .submit-button {
           position: relative;
           display: inline-block;
           width: 100%;
           padding: 1rem 1.5rem;
-          color: #0a0e27;
+          color: #fff;
           font-size: 1.2rem;
           font-weight: 700;
           text-decoration: none;
@@ -1147,19 +1138,19 @@ function App() {
           transition: .3s;
           margin-top: 1.5rem;
           letter-spacing: 2px;
-          background: linear-gradient(135deg, #00ffff 0%, #0088ff 100%);
+          background: linear-gradient(135deg, #7c3aed 0%, #06b6d4 100%);
           border: none;
           cursor: pointer;
           border-radius: 0.5rem;
-          box-shadow: 0 0 25px rgba(0, 255, 255, 0.4);
+          box-shadow: 0 4px 15px rgba(124, 58, 237, 0.3);
         }
         .submit-button:hover {
           transform: translateY(-2px);
-          box-shadow: 0 0 35px rgba(0, 255, 255, 0.7), 0 0 15px rgba(136, 0, 255, 0.4);
+          box-shadow: 0 6px 20px rgba(124, 58, 237, 0.4);
         }
         .submit-button:hover:not(:disabled) {
-          background: linear-gradient(135deg, #8800ff 0%, #00ffff 100%);
-          box-shadow: 0 0 40px rgba(136, 0, 255, 0.6), 0 0 20px rgba(0, 255, 255, 0.5);
+          background: linear-gradient(135deg, #0284c7 0%, #0891b2 100%);
+          box-shadow: 0 6px 16px rgba(14, 165, 233, 0.4);
           transform: translateY(-2px);
         }
         .submit-button:disabled {
@@ -1170,11 +1161,11 @@ function App() {
           border-radius: 50%;
         }
         .itinerary-display {
-          background: linear-gradient(135deg, #0a0e27 0%, #1a1633 50%, #2d1b3d 100%);
+          background: #ffffff;
           border-radius: 1.25rem;
           padding: 2.5rem;
-          border: 3px solid #00ffff;
-          box-shadow: 0 0 30px rgba(0, 255, 255, 0.3);
+          border: 2px solid #e0e7ff;
+          box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
           margin-top: 0;
           max-height: 100%;
           overflow-y: auto;
@@ -1185,10 +1176,10 @@ function App() {
           text-align: left;
           margin-bottom: 1.25rem;
           padding-bottom: 1rem;
-          border-bottom: 3px solid #0088ff;
+          border-bottom: 2px solid #e0e7ff;
         }
         .itinerary-header h3 {
-          background: linear-gradient(135deg, #00ffff 0%, #0088ff 100%);
+          background: linear-gradient(135deg, #7c3aed 0%, #06b6d4 100%);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
@@ -1197,22 +1188,22 @@ function App() {
           font-weight: 800;
         }
         .itinerary-dates, .itinerary-budget {
-          color: #0088ff;
+          color: #64748b;
           margin: 0 0 0.25rem 0;
           font-size: 1rem;
-          font-weight: 600;
+          font-weight: 500;
         }
         .itinerary-day {
           margin-bottom: 2rem;
           padding-bottom: 1.5rem;
-          border-bottom: 2px solid #0088ff;
+          border-bottom: 1px solid #e0e7ff;
         }
         .itinerary-day:last-child {
           border-bottom: none;
           margin-bottom: 0;
         }
         .day-title {
-          color: #00ffff;
+          color: #7c3aed;
           margin: 0 0 1.25rem 0;
           font-size: 1.5rem;
           font-weight: 800;
@@ -1227,22 +1218,20 @@ function App() {
           align-items: flex-start;
           gap: 1.25rem;
           padding: 1.5rem;
-          background: linear-gradient(135deg, #1a1633 0%, #0a0e27 100%);
+          background: linear-gradient(135deg, #f0f4ff 0%, #f5faff 100%);
           border-radius: 0.75rem;
-          border-left: 5px solid #0088ff;
+          border-left: 5px solid #7c3aed;
           cursor: pointer;
           transition: all 0.3s;
-          border: 1px solid #0088ff;
         }
         .schedule-item:hover {
-          background: linear-gradient(135deg, #2d1b3d 0%, #1a1633 100%);
-          box-shadow: 0 0 25px rgba(0, 255, 255, 0.3);
+          background: linear-gradient(135deg, #e9ecff 0%, #f0f6ff 100%);
+          box-shadow: 0 8px 20px rgba(124, 58, 237, 0.15);
           transform: translateX(4px);
-          border-color: #00ffff;
         }
         .schedule-time {
           min-width: 80px;
-          color: #00ffff;
+          color: #06b6d4;
           font-weight: 800;
           font-size: 1.1rem;
         }
@@ -1250,37 +1239,36 @@ function App() {
           flex: 1;
         }
         .activity-name, .meal-name {
-          color: #00ffff;
+          color: #7c3aed;
           margin: 0 0 0.25rem 0;
           font-size: 1.1rem;
           font-weight: 800;
         }
         .meal-name {
-          color: #00ffff;
+          color: #f59e0b;
         }
         .activity-description, .meal-description {
-          color: #0088ff;
+          color: #64748b;
           margin: 0 0 0.25rem 0;
           font-size: 1rem;
           line-height: 1.5;
         }
         .price-tag {
-          background: linear-gradient(135deg, #00ffff 0%, #0088ff 100%);
-          color: #0a0e27;
+          background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+          color: white;
           padding: 0.4rem 0.8rem;
           border-radius: 0.5rem;
           font-size: 0.95rem;
           font-weight: 800;
         }
         .leaflet-popup-content-wrapper {
-          background: #0a0e27;
+          background: #ffffff;
           border-radius: 0.5rem;
-          box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
-          border: 2px solid #00ffff;
-          color: #00ffff;
+          box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+          border: 2px solid #e0e7ff;
         }
         .leaflet-popup-tip {
-          background: #0a0e27;
+          background: #ffffff;
         }
         @keyframes spin {
           0% { transform: rotate(0deg); }
