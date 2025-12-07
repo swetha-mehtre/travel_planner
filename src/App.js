@@ -745,7 +745,7 @@ function App() {
           left: 0;
           right: 0;
           bottom: 0;
-          background: linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0.88) 50%, rgba(255, 255, 255, 0.92) 100%);
+          background: linear-gradient(180deg, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.70) 50%, rgba(255, 255, 255, 0.75) 100%);
           pointer-events: none;
           border-radius: 1.5rem;
         }
@@ -879,7 +879,7 @@ function App() {
         .trip-box input {
           width: 100%;
           padding: 0.75rem 0;
-          font-size: 1.1rem;
+          font-size: 1.15rem;
           color: #1a202c;
           margin-bottom: 1.75rem;
           border: none;
@@ -887,6 +887,7 @@ function App() {
           outline: none;
           background: transparent;
           transition: border-color 0.3s;
+          font-weight: 500;
         }
         .trip-box input:disabled {
           background: transparent;
@@ -901,7 +902,7 @@ function App() {
           top: 0;
           left: 0;
           padding: 0.75rem 0;
-          font-size: 0.95rem;
+          font-size: 1.05rem;
           color: #64748b;
           pointer-events: none;
           transition: .3s;
@@ -1194,7 +1195,7 @@ function App() {
           display: flex;
           align-items: center;
           gap: 0.75rem;
-          font-size: 0.95rem;
+          font-size: 1rem;
           color: #1a202c;
           margin-bottom: 0.75rem;
           cursor: pointer;
