@@ -966,9 +966,28 @@ function App() {
         .interests-section {
           margin-bottom: 1.5rem;
           padding: 1.5rem;
-          background: linear-gradient(135deg, #f8faff 0%, #f0f4ff 100%);
+          background-image: url('${process.env.PUBLIC_URL}/interests-theme.png');
+          background-size: cover;
+          background-position: center;
+          background-attachment: local;
           border-radius: 1rem;
           border: 2px solid #e0e7ff;
+          position: relative;
+        }
+        .interests-section::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: linear-gradient(135deg, rgba(248, 250, 255, 0.80) 0%, rgba(240, 244, 255, 0.85) 100%);
+          pointer-events: none;
+          border-radius: 1rem;
+        }
+        .interests-section > * {
+          position: relative;
+          z-index: 1;
         }
         .api-provider-section {
           margin-bottom: 2rem;
