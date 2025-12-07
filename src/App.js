@@ -622,18 +622,25 @@ function App() {
           height: 100%;
           margin: 0;
           padding: 0;
-          background-color: #f5f7fa;
+          background: linear-gradient(135deg, #fef3c7 0%, #fecaca 25%, #dbeafe 50%, #ddd6fe 75%, #f3e8ff 100%);
+          background-size: 400% 400%;
+          animation: gradientShift 15s ease infinite;
           color: #1a202c;
           font-family: 'Poppins', 'Segoe UI', sans-serif;
+        }
+        @keyframes gradientShift {
+          0% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+          100% { background-position: 0% 50%; }
         }
         header {
           display: flex;
           align-items: center;
           justify-content: center;
           padding: 1.5rem 2rem;
-          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-          background: linear-gradient(135deg, #ffffff 0%, #f0f9ff 100%);
-          border-bottom: 1px solid #e0e7ff;
+          box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+          background: linear-gradient(135deg, #ff6b9d 0%, #c06c84 25%, #6c5b7b 50%, #355c7d 75%, #2e86ab 100%);
+          border-bottom: 3px solid #ff006e;
         }
         .container {
           max-width: 100%;
@@ -647,9 +654,9 @@ function App() {
           background-color: transparent;
         }
         .error {
-          background-color: #fee2e2;
-          border: 1px solid #fecaca;
-          color: #991b1b;
+          background: linear-gradient(135deg, #ff6b6b 0%, #ff8787 100%);
+          border: 2px solid #ff5252;
+          color: #ffffff;
           padding: 1rem;
           border-radius: 0.75rem;
           margin-bottom: 1rem;
@@ -670,11 +677,11 @@ function App() {
           height: 70vh;
           min-height: 500px;
           width: 100%;
-          border-radius: 1rem;
-          box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+          border-radius: 1.5rem;
+          box-shadow: 0 15px 35px rgba(255, 107, 157, 0.3), 0 0 0 3px rgba(255, 107, 157, 0.1);
           overflow: hidden;
           background: #ffffff;
-          border: 1px solid #e0e7ff;
+          border: 3px solid #ff6b9d;
           grid-column: 2;
           grid-row: 1;
         }
@@ -755,23 +762,25 @@ function App() {
           font-size: 1.8rem;
           font-weight: 900;
           line-height: 1;
-          background: linear-gradient(135deg, #7c3aed 0%, #06b6d4 100%);
+          background: linear-gradient(135deg, #ffd700 0%, #ffed4e 50%, #ffffff 100%);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
+          text-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
         .brand-subtitle {
           font-size: 1rem;
-          color: #06b6d4;
+          color: #ffed4e;
           line-height: 1;
           font-weight: 600;
+          text-shadow: 0 1px 2px rgba(0,0,0,0.2);
         }
         .login-box {
-          background: linear-gradient(135deg, #ffffff 0%, #f8faff 100%);
+          background: linear-gradient(135deg, #fff9e6 0%, #ffe6f0 50%, #e6f2ff 100%);
           padding: 2.5rem;
-          border: 1px solid #e0e7ff;
-          box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-          border-radius: 1.25rem;
+          border: 3px solid #ff6b9d;
+          box-shadow: 0 12px 28px rgba(255, 107, 157, 0.25);
+          border-radius: 1.5rem;
           overflow-y: auto;
           max-height: 100%;
           width: 100%;
@@ -783,7 +792,7 @@ function App() {
         .login-box h2 {
           margin: 0 0 2rem 0;
           padding: 0;
-          background: linear-gradient(135deg, #7c3aed 0%, #06b6d4 100%);
+          background: linear-gradient(135deg, #ff6b9d 0%, #c06c84 100%);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
@@ -870,7 +879,7 @@ function App() {
         .currency-label {
           font-size: 1rem;
           font-weight: 700;
-          color: #7c3aed;
+          color: #ff6b9d;
           text-transform: uppercase;
           letter-spacing: 0.5px;
         }
@@ -879,8 +888,8 @@ function App() {
           padding: 1rem;
           font-size: 1rem;
           color: #1a202c;
-          background: linear-gradient(135deg, #f8faff 0%, #f0f4ff 100%);
-          border: 2px solid #e0e7ff;
+          background: linear-gradient(135deg, #ffe6f0 0%, #fff9e6 100%);
+          border: 2px solid #ff6b9d;
           border-radius: 0.75rem;
           outline: none;
           transition: all 0.3s;
@@ -888,12 +897,12 @@ function App() {
           font-weight: 600;
         }
         .currency-select:hover {
-          border-color: #7c3aed;
-          box-shadow: 0 4px 12px rgba(124, 58, 237, 0.1);
+          border-color: #ff006e;
+          box-shadow: 0 4px 12px rgba(255, 107, 157, 0.25);
         }
         .currency-select:focus {
-          border-color: #7c3aed;
-          box-shadow: 0 6px 16px rgba(124, 58, 237, 0.2);
+          border-color: #ff006e;
+          box-shadow: 0 6px 16px rgba(255, 107, 157, 0.35);
         }
         .currency-select option {
           background: #ffffff;
@@ -905,37 +914,38 @@ function App() {
           display: block;
           margin-top: 1rem;
           font-size: 0.8rem;
-          color: #64748b;
+          color: #c06c84;
         }
         .api-link {
-          color: #0ea5e9;
+          color: #ff006e;
           text-decoration: underline;
           margin-right: 0.5rem;
           font-weight: 600;
         }
         .api-info {
           font-size: 0.8rem;
-          color: #64748b;
+          color: #c06c84;
         }
         .interests-section {
           margin-bottom: 1.5rem;
           padding: 1.5rem;
-          background: linear-gradient(135deg, #f8faff 0%, #f0f4ff 100%);
+          background: linear-gradient(135deg, #fff9e6 0%, #ffe6f0 100%);
           border-radius: 1rem;
-          border: 1px solid #e0e7ff;
+          border: 2px solid #ffb3d9;
+          box-shadow: 0 8px 20px rgba(255, 107, 157, 0.15);
         }
         .api-provider-section {
           margin-bottom: 2rem;
           padding: 1.5rem;
-          background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+          background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
           border-radius: 0.875rem;
-          border: 2px solid #fcd34d;
-          box-shadow: 0 10px 24px rgba(251, 191, 36, 0.2);
+          border: 2px solid #ffc300;
+          box-shadow: 0 10px 24px rgba(255, 195, 0, 0.3);
         }
         .api-provider-label {
           font-size: 0.9rem;
           font-weight: 800;
-          color: #92400e;
+          color: #8b6914;
           text-transform: uppercase;
           letter-spacing: 0.8px;
           display: block;
@@ -955,8 +965,8 @@ function App() {
           align-items: center;
           gap: 0.65rem;
           padding: 1.4rem;
-          background: #fffef9;
-          border: 2px solid #fcd34d;
+          background: linear-gradient(135deg, #fff9e6 0%, #fffef0 100%);
+          border: 2px solid #ffc300;
           border-radius: 0.9rem;
           cursor: pointer;
           transition: all 0.3s ease;
@@ -965,16 +975,16 @@ function App() {
           text-align: center;
         }
         .api-option:hover {
-          background: #fff4d7;
-          border-color: #f59e0b;
-          box-shadow: 0 12px 22px rgba(245, 158, 11, 0.25);
-          transform: translateY(-3px) scale(1.01);
+          background: linear-gradient(135deg, #ffed4e 0%, #ffd700 100%);
+          border-color: #ff006e;
+          box-shadow: 0 12px 28px rgba(255, 0, 110, 0.3);
+          transform: translateY(-3px) scale(1.02);
         }
         .api-option input[type="radio"] {
           width: 22px;
           height: 22px;
           cursor: pointer;
-          accent-color: #d97706;
+          accent-color: #ff006e;
           flex-shrink: 0;
           margin: 0;
         }
@@ -986,26 +996,27 @@ function App() {
         .option-title {
           font-size: 1.05rem;
           font-weight: 800;
-          color: #1f2937;
+          color: #8b6914;
           font-family: 'Poppins', sans-serif;
         }
         .option-desc {
           font-size: 0.9rem;
-          color: #b45309;
+          color: #c06c84;
           font-weight: 600;
           font-family: 'Poppins', sans-serif;
         }
         .extras-section {
           margin-bottom: 1.75rem;
           padding: 1.5rem;
-          background: linear-gradient(135deg, #f8faff 0%, #eef2ff 100%);
+          background: linear-gradient(135deg, #ffe6f0 0%, #fff9e6 100%);
           border-radius: 0.875rem;
-          border: 1px solid #e0e7ff;
+          border: 2px solid #ff6b9d;
+          box-shadow: 0 8px 20px rgba(255, 107, 157, 0.15);
         }
         .extras-label {
           font-size: 0.95rem;
           font-weight: 800;
-          color: #1e3a8a;
+          color: #c06c84;
           display: block;
           margin-bottom: 0.75rem;
           font-family: 'Poppins', sans-serif;
@@ -1015,9 +1026,9 @@ function App() {
           padding: 0.9rem 1rem;
           font-size: 0.95rem;
           color: #1f2937;
-          border: 1.5px solid #cbd5e1;
+          border: 2px solid #ff6b9d;
           border-radius: 0.75rem;
-          background: #ffffff;
+          background: #fffdf8;
           outline: none;
           resize: vertical;
           min-height: 96px;
@@ -1026,8 +1037,8 @@ function App() {
           transition: all 0.3s ease;
         }
         .extras-textarea:focus {
-          border-color: #6366f1;
-          box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+          border-color: #ff006e;
+          box-shadow: 0 0 0 3px rgba(255, 0, 110, 0.2);
         }
         .famous-places {
           margin-top: 1rem;
@@ -1039,78 +1050,29 @@ function App() {
           width: 100%;
           padding: 0.85rem 1rem;
           font-size: 0.95rem;
-          border: 1.5px solid #cbd5e1;
+          border: 2px solid #ff6b9d;
           border-radius: 0.75rem;
-          background: #ffffff;
+          background: #fffdf8;
           color: #1f2937;
           outline: none;
           font-family: 'Poppins', sans-serif;
           transition: all 0.3s ease;
         }
         .famous-select:focus {
-          border-color: #6366f1;
-          box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+          border-color: #ff006e;
+          box-shadow: 0 0 0 3px rgba(255, 0, 110, 0.2);
         }
           .api-keys-section {
             margin-bottom: 2rem;
             padding: 1.5rem;
-            background: linear-gradient(135deg, #eff6ff 0%, #f0f9ff 100%);
+            background: linear-gradient(135deg, #eff6ff 0%, #e6f3ff 100%);
             border-radius: 0.875rem;
-            border: 2px solid #bfdbfe;
-          }
-          .api-provider-options {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-          }
-          .api-option {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            padding: 1.25rem;
-            background: #ffffff;
-            border: 2px solid #fcd34d;
-            border-radius: 0.75rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-family: 'Poppins', sans-serif;
-          }
-          .api-option:hover {
-            background: #fef9e7;
-            border-color: #fbbf24;
-            box-shadow: 0 4px 12px rgba(251, 191, 36, 0.2);
-          }
-          .option-content {
-            display: flex;
-            flex-direction: column;
-            gap: 0.25rem;
-          }
-          .option-desc {
-            font-size: 0.85rem;
-            color: #92400e;
-            font-weight: 500;
-            font-family: 'Poppins', sans-serif;
-          }
-            border-color: #e5e7eb;
-          }
-          .api-help-link {
-            display: inline-block;
-            margin-top: 0.75rem;
-            font-size: 0.9rem;
-            color: #3b82f6;
-            text-decoration: none;
-            font-weight: 700;
-            transition: all 0.3s ease;
-            font-family: 'Poppins', sans-serif;
-          }
-          .api-help-link:hover {
-            color: #1e40af;
-            text-decoration: underline;
+            border: 2px solid #8dd3ff;
           }
         .interests-label {
           font-size: 1.1rem;
           font-weight: 700;
-          color: #7c3aed;
+          color: #ff6b9d;
           text-transform: uppercase;
           letter-spacing: 0.5px;
           display: block;
@@ -1122,16 +1084,16 @@ function App() {
           gap: 1.5rem;
         }
         .interest-category {
-          background: #ffffff;
+          background: linear-gradient(135deg, #fff9e6 0%, #ffe6f0 100%);
           border-radius: 0.75rem;
           padding: 1.25rem;
-          border: 1px solid #e0e7ff;
-          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+          border: 2px solid #ff6b9d;
+          box-shadow: 0 6px 16px rgba(255, 107, 157, 0.15);
         }
         .category-title {
           font-size: 0.95rem;
           font-weight: 800;
-          color: #1a202c;
+          color: #c06c84;
           margin-bottom: 1rem;
           display: flex;
           align-items: center;
@@ -1196,11 +1158,11 @@ function App() {
           border-radius: 50%;
         }
         .itinerary-display {
-          background: #ffffff;
+          background: linear-gradient(135deg, #fff9e6 0%, #ffe6f0 50%, #e6f3ff 100%);
           border-radius: 1.25rem;
           padding: 2.5rem;
-          border: 1px solid #e0e7ff;
-          box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+          border: 3px solid #ff6b9d;
+          box-shadow: 0 12px 28px rgba(255, 107, 157, 0.2);
           margin-top: 0;
           max-height: 100%;
           overflow-y: auto;
@@ -1211,10 +1173,10 @@ function App() {
           text-align: left;
           margin-bottom: 1.25rem;
           padding-bottom: 1rem;
-          border-bottom: 2px solid #e0e7ff;
+          border-bottom: 3px solid #ff6b9d;
         }
         .itinerary-header h3 {
-          background: linear-gradient(135deg, #7c3aed 0%, #06b6d4 100%);
+          background: linear-gradient(135deg, #ff6b9d 0%, #c06c84 100%);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
@@ -1223,23 +1185,22 @@ function App() {
           font-weight: 800;
         }
         .itinerary-dates, .itinerary-budget {
-          color: #64748b;
+          color: #c06c84;
           margin: 0 0 0.25rem 0;
           font-size: 1rem;
-          font-weight: 500;
-        }
+          font-weight: 600;
         }
         .itinerary-day {
           margin-bottom: 2rem;
           padding-bottom: 1.5rem;
-          border-bottom: 1px solid #e0e7ff;
+          border-bottom: 2px solid #ffb3d9;
         }
         .itinerary-day:last-child {
           border-bottom: none;
           margin-bottom: 0;
         }
         .day-title {
-          color: #7c3aed;
+          color: #ff6b9d;
           margin: 0 0 1.25rem 0;
           font-size: 1.5rem;
           font-weight: 800;
@@ -1254,20 +1215,22 @@ function App() {
           align-items: flex-start;
           gap: 1.25rem;
           padding: 1.5rem;
-          background: linear-gradient(135deg, #f0f4ff 0%, #f5faff 100%);
+          background: linear-gradient(135deg, #fff9e6 0%, #ffe6f0 100%);
           border-radius: 0.75rem;
-          border-left: 5px solid #7c3aed;
+          border-left: 5px solid #ff6b9d;
           cursor: pointer;
           transition: all 0.3s;
+          border: 1px solid #ffb3d9;
         }
         .schedule-item:hover {
-          background: linear-gradient(135deg, #e9ecff 0%, #f0f6ff 100%);
-          box-shadow: 0 8px 20px rgba(124, 58, 237, 0.15);
+          background: linear-gradient(135deg, #ffed4e 0%, #ff9dc4 100%);
+          box-shadow: 0 12px 28px rgba(255, 107, 157, 0.3);
           transform: translateX(4px);
+          border-color: #ff006e;
         }
         .schedule-time {
           min-width: 80px;
-          color: #06b6d4;
+          color: #c06c84;
           font-weight: 800;
           font-size: 1.1rem;
         }
@@ -1275,22 +1238,22 @@ function App() {
           flex: 1;
         }
         .activity-name, .meal-name {
-          color: #7c3aed;
+          color: #ff6b9d;
           margin: 0 0 0.25rem 0;
           font-size: 1.1rem;
           font-weight: 800;
         }
         .meal-name {
-          color: #f59e0b;
+          color: #ff6b9d;
         }
         .activity-description, .meal-description {
-          color: #64748b;
+          color: #c06c84;
           margin: 0 0 0.25rem 0;
           font-size: 1rem;
           line-height: 1.5;
         }
         .price-tag {
-          background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+          background: linear-gradient(135deg, #ff6b9d 0%, #ff006e 100%);
           color: white;
           padding: 0.4rem 0.8rem;
           border-radius: 0.5rem;
@@ -1301,7 +1264,7 @@ function App() {
           background: #ffffff;
           border-radius: 0.5rem;
           box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-          border: 1px solid #e0e7ff;
+          border: 2px solid #ff6b9d;
         }
         .leaflet-popup-tip {
           background: #ffffff;
