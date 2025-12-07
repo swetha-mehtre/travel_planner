@@ -726,7 +726,7 @@ function App() {
           left: 0;
           right: 0;
           bottom: 0;
-          background: linear-gradient(135deg, rgba(255, 255, 255, 0.70) 0%, rgba(245, 240, 232, 0.75) 100%);
+          background: linear-gradient(135deg, rgba(255, 255, 255, 0.50) 0%, rgba(245, 240, 232, 0.55) 100%);
           pointer-events: none;
           border-radius: 1.5rem;
         }
@@ -981,7 +981,7 @@ function App() {
           left: 0;
           right: 0;
           bottom: 0;
-          background: linear-gradient(135deg, rgba(248, 250, 255, 0.80) 0%, rgba(240, 244, 255, 0.85) 100%);
+          background: linear-gradient(135deg, rgba(248, 250, 255, 0.60) 0%, rgba(240, 244, 255, 0.65) 100%);
           pointer-events: none;
           border-radius: 1rem;
         }
