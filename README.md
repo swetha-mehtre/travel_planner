@@ -1,4 +1,4 @@
-# 🌍 WanderMind - Musafir Not Bhatak
+# 🌍 travel planner - Musafir Not Bhatak
 
 An AI-powered travel itinerary planner that transforms your trip planning experience into a seamless, personalized adventure. Discover destinations, plan trips, and create unforgettable journeys.
 
@@ -167,15 +167,7 @@ GROQ_API_KEY=
 
 ## 📧 Contact
 
-- GitHub: [@rixscx](https://github.com/rixscx)
-- Twitter: [@rixscx](https://x.com/rixscx)
+- GitHub:https://github.com/swetha-mehtre
+- linkdn:https://www.linkedin.com/in/swetha-mehtre-6619442a9/
 
 ---
-
-<p align="center">
-  Made with ☕️ by rixscx
-</p>
-
-<p align="center">
-  <small>Location icons created by Freepik - Flaticon</small>
-</p>
