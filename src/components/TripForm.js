@@ -29,7 +29,7 @@ const TripForm = ({ onSubmit, disabled }) => {
 
   return (
     <div className="bg-white p-6 rounded-lg shadow-lg">
-      <h2 className="text-2xl font-semibold mb-6">Plan Your WanderMind Trip</h2>
+      <h2 className="form-title">Plan Your WanderMind Trip</h2>
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">Destination</label>
