@@ -623,9 +623,9 @@ function App() {
           margin: 0;
           padding: 0;
           background-image: url('${process.env.PUBLIC_URL}/travel-bg.svg');
-          background-size: cover;
+          background-size: 800px 800px;
+          background-repeat: repeat;
           background-attachment: fixed;
-          background-position: center;
           background-color: #F5F0E8;
           color: #2d3748;
           font-family: 'Poppins', 'Segoe UI', sans-serif;
@@ -638,7 +638,7 @@ function App() {
           left: 0;
           right: 0;
           bottom: 0;
-          background: linear-gradient(135deg, rgba(255, 255, 255, 0.96) 0%, rgba(245, 240, 232, 0.97) 100%);
+          background: linear-gradient(135deg, rgba(255, 255, 255, 0.88) 0%, rgba(245, 240, 232, 0.90) 100%);
           pointer-events: none;
           z-index: -1;
         }
