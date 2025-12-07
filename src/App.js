@@ -647,9 +647,30 @@ function App() {
           align-items: center;
           justify-content: center;
           padding: 1.5rem 2rem;
-          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-          background: linear-gradient(135deg, #ffffff 0%, #f8faff 100%);
-          border-bottom: 2px solid #e0e7ff;
+          box-shadow: 0 8px 20px rgba(74, 144, 226, 0.2);
+          background: linear-gradient(135deg, #4A90E2 0%, #50E3C2 100%);
+          border-bottom: none;
+          position: relative;
+          overflow: hidden;
+        }
+        header::before {
+          content: '';
+          position: absolute;
+          top: -50%;
+          right: -50%;
+          width: 200%;
+          height: 200%;
+          background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+          animation: shimmer 8s infinite;
+        }
+        @keyframes shimmer {
+          0%, 100% { transform: translate(0, 0); }
+          50% { transform: translate(20px, 20px); }
+        }
+        header > * {
+          position: relative;
+          z-index: 1;
+          color: #ffffff;
         }
         .container {
           max-width: 100%;
@@ -690,12 +711,24 @@ function App() {
           height: 100%;
           width: 100%;
           border-radius: 1.5rem;
-          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+          box-shadow: 0 15px 40px rgba(74, 144, 226, 0.25);
           overflow: hidden;
           background: #ffffff;
-          border: 2px solid #e0e7ff;
+          border: 3px solid #4A90E2;
           grid-column: 2;
           grid-row: 1;
+          position: relative;
+          background: linear-gradient(135deg, #ffffff 0%, #f0f8ff 100%);
+        }
+        .map-container-wrapper::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: linear-gradient(135deg, rgba(74, 144, 226, 0.05) 0%, rgba(80, 227, 194, 0.05) 100%);
+          pointer-events: none;
         }
         @media (max-width: 1024px) {
           .map-container-wrapper {
@@ -717,8 +750,8 @@ function App() {
           background-attachment: local;
           position: relative;
           border-radius: 1.5rem;
-          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-          border: 2px solid #e0e7ff;
+          box-shadow: 0 15px 40px rgba(245, 166, 35, 0.25);
+          border: 3px solid #F5A623;
         }
         .form-wrapper::before {
           content: '';
@@ -727,7 +760,7 @@ function App() {
           left: 0;
           right: 0;
           bottom: 0;
-          background: linear-gradient(135deg, rgba(255, 255, 255, 0.10) 0%, rgba(245, 240, 232, 0.15) 100%);
+          background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(245, 166, 35, 0.08) 100%);
           pointer-events: none;
           border-radius: 1.5rem;
         }
@@ -967,13 +1000,15 @@ function App() {
         .interests-section {
           margin-bottom: 1.5rem;
           padding: 1.5rem;
-          background-image: url('${process.env.PUBLIC_URL}/interests-theme.png');
-          background-size: cover;
-          background-position: center;
+          background-image: url('${process.env.PUBLIC_URL}/images.jpeg');
+          background-size: 300px 300px;
+          background-repeat: repeat;
           background-attachment: local;
           border-radius: 1rem;
-          border: 2px solid #e0e7ff;
+          border: 3px solid #50E3C2;
           position: relative;
+          box-shadow: 0 10px 25px rgba(80, 227, 194, 0.2);
+          background-blend-mode: overlay;
         }
         .interests-section::before {
           content: '';
@@ -982,7 +1017,7 @@ function App() {
           left: 0;
           right: 0;
           bottom: 0;
-          background: linear-gradient(135deg, rgba(248, 250, 255, 0.30) 0%, rgba(240, 244, 255, 0.35) 100%);
+          background: linear-gradient(135deg, rgba(80, 227, 194, 0.15) 0%, rgba(74, 144, 226, 0.10) 100%);
           pointer-events: none;
           border-radius: 1rem;
         }
@@ -1158,13 +1193,19 @@ function App() {
           align-items: center;
           gap: 0.75rem;
           font-size: 0.95rem;
-          color: #475569;
+          color: #1a202c;
           margin-bottom: 0.75rem;
           cursor: pointer;
-          transition: all 0.2s;
+          transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+          padding: 0.5rem 0.75rem;
+          border-radius: 0.5rem;
+          font-weight: 500;
         }
         .interest-checkbox:hover {
-          color: #7c3aed;
+          background: rgba(74, 144, 226, 0.15);
+          color: #4A90E2;
+          transform: translateX(5px);
+          box-shadow: 0 4px 12px rgba(74, 144, 226, 0.2);
         }
         .interest-checkbox:last-child {
           margin-bottom: 0;
@@ -1186,27 +1227,38 @@ function App() {
           text-decoration: none;
           text-transform: uppercase;
           overflow: hidden;
-          transition: .3s;
+          transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
           margin-top: 1.5rem;
           letter-spacing: 2px;
-          background: linear-gradient(135deg, #7c3aed 0%, #06b6d4 100%);
+          background: linear-gradient(135deg, #4A90E2 0%, #50E3C2 100%);
           border: none;
           cursor: pointer;
-          border-radius: 0.5rem;
-          box-shadow: 0 4px 15px rgba(124, 58, 237, 0.3);
+          border-radius: 50px;
+          box-shadow: 0 8px 25px rgba(74, 144, 226, 0.4);
+          animation: popIn 0.6s ease-out;
         }
-        .submit-button:hover {
-          transform: translateY(-2px);
-          box-shadow: 0 6px 20px rgba(124, 58, 237, 0.4);
+        @keyframes popIn {
+          0% {
+            transform: scale(0.8) translateY(10px);
+            opacity: 0;
+          }
+          100% {
+            transform: scale(1) translateY(0);
+            opacity: 1;
+          }
         }
         .submit-button:hover:not(:disabled) {
-          background: linear-gradient(135deg, #0284c7 0%, #0891b2 100%);
-          box-shadow: 0 6px 16px rgba(14, 165, 233, 0.4);
-          transform: translateY(-2px);
+          transform: scale(1.05) translateY(-4px);
+          background: linear-gradient(135deg, #F5A623 0%, #4A90E2 100%);
+          box-shadow: 0 12px 35px rgba(245, 166, 35, 0.5);
+        }
+        .submit-button:active:not(:disabled) {
+          transform: scale(0.98) translateY(-2px);
         }
         .submit-button:disabled {
-          opacity: 0.5;
+          opacity: 0.6;
           cursor: not-allowed;
+          transform: scale(1);
         }
         .loader {
           border-radius: 50%;
