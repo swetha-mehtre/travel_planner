@@ -622,10 +622,10 @@ function App() {
           height: 100%;
           margin: 0;
           padding: 0;
-          background: linear-gradient(135deg, #fef3c7 0%, #fecaca 25%, #dbeafe 50%, #ddd6fe 75%, #f3e8ff 100%);
+          background: linear-gradient(135deg, #0a0e27 0%, #1a1633 25%, #2d1b3d 50%, #1a2647 75%, #0d1929 100%);
           background-size: 400% 400%;
           animation: gradientShift 15s ease infinite;
-          color: #1a202c;
+          color: #00ffff;
           font-family: 'Poppins', 'Segoe UI', sans-serif;
         }
         @keyframes gradientShift {
@@ -638,9 +638,9 @@ function App() {
           align-items: center;
           justify-content: center;
           padding: 1.5rem 2rem;
-          box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
-          background: linear-gradient(135deg, #ff6b9d 0%, #c06c84 25%, #6c5b7b 50%, #355c7d 75%, #2e86ab 100%);
-          border-bottom: 3px solid #ff006e;
+          box-shadow: 0 0 30px rgba(0, 255, 255, 0.3);
+          background: linear-gradient(135deg, #0a0e27 0%, #1e0b3a 25%, #2d1654 50%, #1a1a4d 75%, #0d2d4d 100%);
+          border-bottom: 3px solid #00ffff;
         }
         .container {
           max-width: 100%;
@@ -654,8 +654,8 @@ function App() {
           background-color: transparent;
         }
         .error {
-          background: linear-gradient(135deg, #ff6b6b 0%, #ff8787 100%);
-          border: 2px solid #ff5252;
+          background: linear-gradient(135deg, #ff006e 0%, #ff4f8b 100%);
+          border: 2px solid #ff1744;
           color: #ffffff;
           padding: 1rem;
           border-radius: 0.75rem;
@@ -678,10 +678,10 @@ function App() {
           min-height: 500px;
           width: 100%;
           border-radius: 1.5rem;
-          box-shadow: 0 15px 35px rgba(255, 107, 157, 0.3), 0 0 0 3px rgba(255, 107, 157, 0.1);
+          box-shadow: 0 0 25px rgba(0, 255, 255, 0.25), inset 0 0 15px rgba(0, 255, 255, 0.1);
           overflow: hidden;
-          background: #ffffff;
-          border: 3px solid #ff6b9d;
+          background: #0a0e27;
+          border: 3px solid #00ffff;
           grid-column: 2;
           grid-row: 1;
         }
@@ -762,24 +762,24 @@ function App() {
           font-size: 1.8rem;
           font-weight: 900;
           line-height: 1;
-          background: linear-gradient(135deg, #ffd700 0%, #ffed4e 50%, #ffffff 100%);
+          background: linear-gradient(135deg, #00ffff 0%, #0088ff 50%, #8800ff 100%);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
-          text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+          text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
         }
         .brand-subtitle {
           font-size: 1rem;
-          color: #ffed4e;
+          color: #00ffff;
           line-height: 1;
           font-weight: 600;
-          text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+          text-shadow: 0 0 5px rgba(0, 255, 255, 0.4);
         }
         .login-box {
-          background: linear-gradient(135deg, #fff9e6 0%, #ffe6f0 50%, #e6f2ff 100%);
+          background: linear-gradient(135deg, #0a0e27 0%, #1a1633 50%, #2d1b3d 100%);
           padding: 2.5rem;
-          border: 3px solid #ff6b9d;
-          box-shadow: 0 12px 28px rgba(255, 107, 157, 0.25);
+          border: 3px solid #00ffff;
+          box-shadow: 0 0 25px rgba(0, 255, 255, 0.3), inset 0 0 10px rgba(0, 255, 255, 0.05);
           border-radius: 1.5rem;
           overflow-y: auto;
           max-height: 100%;
@@ -792,7 +792,7 @@ function App() {
         .login-box h2 {
           margin: 0 0 2rem 0;
           padding: 0;
-          background: linear-gradient(135deg, #ff6b9d 0%, #c06c84 100%);
+          background: linear-gradient(135deg, #00ffff 0%, #0088ff 100%);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
@@ -809,21 +809,24 @@ function App() {
           width: 100%;
           padding: 0.75rem 0;
           font-size: 1.1rem;
-          color: #1a202c;
+          color: #00ffff;
           margin-bottom: 1.75rem;
           border: none;
-          border-bottom: 2px solid #cbd5e0;
+          border-bottom: 2px solid #0088ff;
           outline: none;
           background: transparent;
           transition: border-color 0.3s;
         }
         .trip-box input:disabled {
           background: transparent;
-          color: #a0aec0;
-          border-bottom-color: #e2e8f0;
+          color: #00ffff;
+          opacity: 0.5;
+          border-bottom-color: #0088ff;
+          border-bottom-color: transparent;
         }
         .trip-box input:focus {
-          border-bottom-color: #0ea5e9;
+          border-bottom-color: #00ffff;
+          box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
         }
         .trip-box label {
           position: absolute;
@@ -831,7 +834,7 @@ function App() {
           left: 0;
           padding: 0.75rem 0;
           font-size: 0.95rem;
-          color: #64748b;
+          color: #0088ff;
           pointer-events: none;
           transition: .3s;
           font-weight: 700;
@@ -841,7 +844,7 @@ function App() {
         .trip-box input:valid ~ label {
           top: -1.5rem;
           left: 0;
-          color: #0ea5e9;
+          color: #00ffff;
           font-size: 0.8rem;
           font-weight: 700;
         }
@@ -879,7 +882,7 @@ function App() {
         .currency-label {
           font-size: 1rem;
           font-weight: 700;
-          color: #ff6b9d;
+          color: #00ffff;
           text-transform: uppercase;
           letter-spacing: 0.5px;
         }
@@ -887,9 +890,9 @@ function App() {
           width: 100%;
           padding: 1rem;
           font-size: 1rem;
-          color: #1a202c;
-          background: linear-gradient(135deg, #ffe6f0 0%, #fff9e6 100%);
-          border: 2px solid #ff6b9d;
+          color: #00ffff;
+          background: linear-gradient(135deg, #0a0e27 0%, #1a1633 100%);
+          border: 2px solid #0088ff;
           border-radius: 0.75rem;
           outline: none;
           transition: all 0.3s;
@@ -897,16 +900,16 @@ function App() {
           font-weight: 600;
         }
         .currency-select:hover {
-          border-color: #ff006e;
-          box-shadow: 0 4px 12px rgba(255, 107, 157, 0.25);
+          border-color: #00ffff;
+          box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
         }
         .currency-select:focus {
-          border-color: #ff006e;
-          box-shadow: 0 6px 16px rgba(255, 107, 157, 0.35);
+          border-color: #00ffff;
+          box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
         }
         .currency-select option {
-          background: #ffffff;
-          color: #1a202c;
+          background: #0a0e27;
+          color: #00ffff;
           padding: 0.75rem;
           font-weight: 500;
         }
@@ -914,38 +917,38 @@ function App() {
           display: block;
           margin-top: 1rem;
           font-size: 0.8rem;
-          color: #c06c84;
+          color: #0088ff;
         }
         .api-link {
-          color: #ff006e;
+          color: #00ffff;
           text-decoration: underline;
           margin-right: 0.5rem;
           font-weight: 600;
         }
         .api-info {
           font-size: 0.8rem;
-          color: #c06c84;
+          color: #0088ff;
         }
         .interests-section {
           margin-bottom: 1.5rem;
           padding: 1.5rem;
-          background: linear-gradient(135deg, #fff9e6 0%, #ffe6f0 100%);
+          background: linear-gradient(135deg, #0a0e27 0%, #1a1633 100%);
           border-radius: 1rem;
-          border: 2px solid #ffb3d9;
-          box-shadow: 0 8px 20px rgba(255, 107, 157, 0.15);
+          border: 2px solid #0088ff;
+          box-shadow: 0 0 15px rgba(0, 136, 255, 0.2);
         }
         .api-provider-section {
           margin-bottom: 2rem;
           padding: 1.5rem;
-          background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+          background: linear-gradient(135deg, #1a1633 0%, #2d1b3d 100%);
           border-radius: 0.875rem;
-          border: 2px solid #ffc300;
-          box-shadow: 0 10px 24px rgba(255, 195, 0, 0.3);
+          border: 2px solid #8800ff;
+          box-shadow: 0 0 20px rgba(136, 0, 255, 0.25);
         }
         .api-provider-label {
           font-size: 0.9rem;
           font-weight: 800;
-          color: #8b6914;
+          color: #00ffff;
           text-transform: uppercase;
           letter-spacing: 0.8px;
           display: block;
@@ -965,8 +968,8 @@ function App() {
           align-items: center;
           gap: 0.65rem;
           padding: 1.4rem;
-          background: linear-gradient(135deg, #fff9e6 0%, #fffef0 100%);
-          border: 2px solid #ffc300;
+          background: linear-gradient(135deg, #1a1633 0%, #0a0e27 100%);
+          border: 2px solid #0088ff;
           border-radius: 0.9rem;
           cursor: pointer;
           transition: all 0.3s ease;
@@ -975,16 +978,16 @@ function App() {
           text-align: center;
         }
         .api-option:hover {
-          background: linear-gradient(135deg, #ffed4e 0%, #ffd700 100%);
-          border-color: #ff006e;
-          box-shadow: 0 12px 28px rgba(255, 0, 110, 0.3);
+          background: linear-gradient(135deg, #2d1b3d 0%, #1a1633 100%);
+          border-color: #00ffff;
+          box-shadow: 0 0 20px rgba(0, 255, 255, 0.4);
           transform: translateY(-3px) scale(1.02);
         }
         .api-option input[type="radio"] {
           width: 22px;
           height: 22px;
           cursor: pointer;
-          accent-color: #ff006e;
+          accent-color: #00ffff;
           flex-shrink: 0;
           margin: 0;
         }
@@ -996,27 +999,27 @@ function App() {
         .option-title {
           font-size: 1.05rem;
           font-weight: 800;
-          color: #8b6914;
+          color: #00ffff;
           font-family: 'Poppins', sans-serif;
         }
         .option-desc {
           font-size: 0.9rem;
-          color: #c06c84;
+          color: #0088ff;
           font-weight: 600;
           font-family: 'Poppins', sans-serif;
         }
         .extras-section {
           margin-bottom: 1.75rem;
           padding: 1.5rem;
-          background: linear-gradient(135deg, #ffe6f0 0%, #fff9e6 100%);
+          background: linear-gradient(135deg, #0a0e27 0%, #1a1633 100%);
           border-radius: 0.875rem;
-          border: 2px solid #ff6b9d;
-          box-shadow: 0 8px 20px rgba(255, 107, 157, 0.15);
+          border: 2px solid #0088ff;
+          box-shadow: 0 0 15px rgba(0, 136, 255, 0.2);
         }
         .extras-label {
           font-size: 0.95rem;
           font-weight: 800;
-          color: #c06c84;
+          color: #00ffff;
           display: block;
           margin-bottom: 0.75rem;
           font-family: 'Poppins', sans-serif;
@@ -1025,10 +1028,10 @@ function App() {
           width: 100%;
           padding: 0.9rem 1rem;
           font-size: 0.95rem;
-          color: #1f2937;
-          border: 2px solid #ff6b9d;
+          color: #00ffff;
+          border: 2px solid #0088ff;
           border-radius: 0.75rem;
-          background: #fffdf8;
+          background: #0a0e27;
           outline: none;
           resize: vertical;
           min-height: 96px;
@@ -1037,8 +1040,8 @@ function App() {
           transition: all 0.3s ease;
         }
         .extras-textarea:focus {
-          border-color: #ff006e;
-          box-shadow: 0 0 0 3px rgba(255, 0, 110, 0.2);
+          border-color: #00ffff;
+          box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
         }
         .famous-places {
           margin-top: 1rem;
@@ -1050,17 +1053,17 @@ function App() {
           width: 100%;
           padding: 0.85rem 1rem;
           font-size: 0.95rem;
-          border: 2px solid #ff6b9d;
+          border: 2px solid #0088ff;
           border-radius: 0.75rem;
-          background: #fffdf8;
-          color: #1f2937;
+          background: #0a0e27;
+          color: #00ffff;
           outline: none;
           font-family: 'Poppins', sans-serif;
           transition: all 0.3s ease;
         }
         .famous-select:focus {
-          border-color: #ff006e;
-          box-shadow: 0 0 0 3px rgba(255, 0, 110, 0.2);
+          border-color: #00ffff;
+          box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
         }
           .api-keys-section {
             margin-bottom: 2rem;
@@ -1072,7 +1075,7 @@ function App() {
         .interests-label {
           font-size: 1.1rem;
           font-weight: 700;
-          color: #ff6b9d;
+          color: #00ffff;
           text-transform: uppercase;
           letter-spacing: 0.5px;
           display: block;
@@ -1084,16 +1087,16 @@ function App() {
           gap: 1.5rem;
         }
         .interest-category {
-          background: linear-gradient(135deg, #fff9e6 0%, #ffe6f0 100%);
+          background: linear-gradient(135deg, #1a1633 0%, #0a0e27 100%);
           border-radius: 0.75rem;
           padding: 1.25rem;
-          border: 2px solid #ff6b9d;
-          box-shadow: 0 6px 16px rgba(255, 107, 157, 0.15);
+          border: 2px solid #0088ff;
+          box-shadow: 0 0 15px rgba(0, 136, 255, 0.2);
         }
         .category-title {
           font-size: 0.95rem;
           font-weight: 800;
-          color: #c06c84;
+          color: #00ffff;
           margin-bottom: 1rem;
           display: flex;
           align-items: center;
@@ -1104,13 +1107,14 @@ function App() {
           align-items: center;
           gap: 0.75rem;
           font-size: 0.95rem;
-          color: #475569;
+          color: #00ffff;
           margin-bottom: 0.75rem;
           cursor: pointer;
           transition: all 0.2s;
         }
         .interest-checkbox:hover {
-          color: #7c3aed;
+          color: #00ffff;
+          text-shadow: 0 0 8px rgba(0, 255, 255, 0.5);
         }
         .interest-checkbox:last-child {
           margin-bottom: 0;
@@ -1119,14 +1123,14 @@ function App() {
           width: 18px;
           height: 18px;
           cursor: pointer;
-          accent-color: #7c3aed;
+          accent-color: #00ffff;
         }
         .submit-button {
           position: relative;
           display: inline-block;
           width: 100%;
           padding: 1rem 1.5rem;
-          color: #fff;
+          color: #0a0e27;
           font-size: 1.2rem;
           font-weight: 700;
           text-decoration: none;
@@ -1135,19 +1139,19 @@ function App() {
           transition: .3s;
           margin-top: 1.5rem;
           letter-spacing: 2px;
-          background: linear-gradient(135deg, #7c3aed 0%, #06b6d4 100%);
+          background: linear-gradient(135deg, #00ffff 0%, #0088ff 100%);
           border: none;
           cursor: pointer;
           border-radius: 0.5rem;
-          box-shadow: 0 4px 15px rgba(124, 58, 237, 0.3);
+          box-shadow: 0 0 25px rgba(0, 255, 255, 0.4);
         }
         .submit-button:hover {
           transform: translateY(-2px);
-          box-shadow: 0 6px 20px rgba(124, 58, 237, 0.4);
+          box-shadow: 0 0 35px rgba(0, 255, 255, 0.7), 0 0 15px rgba(136, 0, 255, 0.4);
         }
         .submit-button:hover:not(:disabled) {
-          background: linear-gradient(135deg, #0284c7 0%, #0891b2 100%);
-          box-shadow: 0 6px 16px rgba(14, 165, 233, 0.4);
+          background: linear-gradient(135deg, #8800ff 0%, #00ffff 100%);
+          box-shadow: 0 0 40px rgba(136, 0, 255, 0.6), 0 0 20px rgba(0, 255, 255, 0.5);
           transform: translateY(-2px);
         }
         .submit-button:disabled {
@@ -1158,11 +1162,11 @@ function App() {
           border-radius: 50%;
         }
         .itinerary-display {
-          background: linear-gradient(135deg, #fff9e6 0%, #ffe6f0 50%, #e6f3ff 100%);
+          background: linear-gradient(135deg, #0a0e27 0%, #1a1633 50%, #2d1b3d 100%);
           border-radius: 1.25rem;
           padding: 2.5rem;
-          border: 3px solid #ff6b9d;
-          box-shadow: 0 12px 28px rgba(255, 107, 157, 0.2);
+          border: 3px solid #00ffff;
+          box-shadow: 0 0 30px rgba(0, 255, 255, 0.3);
           margin-top: 0;
           max-height: 100%;
           overflow-y: auto;
@@ -1173,10 +1177,10 @@ function App() {
           text-align: left;
           margin-bottom: 1.25rem;
           padding-bottom: 1rem;
-          border-bottom: 3px solid #ff6b9d;
+          border-bottom: 3px solid #0088ff;
         }
         .itinerary-header h3 {
-          background: linear-gradient(135deg, #ff6b9d 0%, #c06c84 100%);
+          background: linear-gradient(135deg, #00ffff 0%, #0088ff 100%);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
@@ -1185,7 +1189,7 @@ function App() {
           font-weight: 800;
         }
         .itinerary-dates, .itinerary-budget {
-          color: #c06c84;
+          color: #0088ff;
           margin: 0 0 0.25rem 0;
           font-size: 1rem;
           font-weight: 600;
@@ -1193,14 +1197,14 @@ function App() {
         .itinerary-day {
           margin-bottom: 2rem;
           padding-bottom: 1.5rem;
-          border-bottom: 2px solid #ffb3d9;
+          border-bottom: 2px solid #0088ff;
         }
         .itinerary-day:last-child {
           border-bottom: none;
           margin-bottom: 0;
         }
         .day-title {
-          color: #ff6b9d;
+          color: #00ffff;
           margin: 0 0 1.25rem 0;
           font-size: 1.5rem;
           font-weight: 800;
@@ -1215,22 +1219,22 @@ function App() {
           align-items: flex-start;
           gap: 1.25rem;
           padding: 1.5rem;
-          background: linear-gradient(135deg, #fff9e6 0%, #ffe6f0 100%);
+          background: linear-gradient(135deg, #1a1633 0%, #0a0e27 100%);
           border-radius: 0.75rem;
-          border-left: 5px solid #ff6b9d;
+          border-left: 5px solid #0088ff;
           cursor: pointer;
           transition: all 0.3s;
-          border: 1px solid #ffb3d9;
+          border: 1px solid #0088ff;
         }
         .schedule-item:hover {
-          background: linear-gradient(135deg, #ffed4e 0%, #ff9dc4 100%);
-          box-shadow: 0 12px 28px rgba(255, 107, 157, 0.3);
+          background: linear-gradient(135deg, #2d1b3d 0%, #1a1633 100%);
+          box-shadow: 0 0 25px rgba(0, 255, 255, 0.3);
           transform: translateX(4px);
-          border-color: #ff006e;
+          border-color: #00ffff;
         }
         .schedule-time {
           min-width: 80px;
-          color: #c06c84;
+          color: #00ffff;
           font-weight: 800;
           font-size: 1.1rem;
         }
@@ -1238,36 +1242,37 @@ function App() {
           flex: 1;
         }
         .activity-name, .meal-name {
-          color: #ff6b9d;
+          color: #00ffff;
           margin: 0 0 0.25rem 0;
           font-size: 1.1rem;
           font-weight: 800;
         }
         .meal-name {
-          color: #ff6b9d;
+          color: #00ffff;
         }
         .activity-description, .meal-description {
-          color: #c06c84;
+          color: #0088ff;
           margin: 0 0 0.25rem 0;
           font-size: 1rem;
           line-height: 1.5;
         }
         .price-tag {
-          background: linear-gradient(135deg, #ff6b9d 0%, #ff006e 100%);
-          color: white;
+          background: linear-gradient(135deg, #00ffff 0%, #0088ff 100%);
+          color: #0a0e27;
           padding: 0.4rem 0.8rem;
           border-radius: 0.5rem;
           font-size: 0.95rem;
           font-weight: 800;
         }
         .leaflet-popup-content-wrapper {
-          background: #ffffff;
+          background: #0a0e27;
           border-radius: 0.5rem;
-          box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-          border: 2px solid #ff6b9d;
+          box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+          border: 2px solid #00ffff;
+          color: #00ffff;
         }
         .leaflet-popup-tip {
-          background: #ffffff;
+          background: #0a0e27;
         }
         @keyframes spin {
           0% { transform: rotate(0deg); }
