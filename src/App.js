@@ -4,7 +4,6 @@ import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import 'leaflet-routing-machine/dist/leaflet-routing-machine.css';
 import 'leaflet-routing-machine';
-import logo from '../public/favicon.png';
 
 // Fix default Leaflet marker icons
 delete L.Icon.Default.prototype._getIconUrl;
@@ -64,47 +63,60 @@ function TripMap({ points = [] }) {
     }
   }, [map, validPoints]);
 
-  if (validPoints.length === 0) {
-    return (
-      <div className="h-full w-full flex items-center justify-center bg-[#1a1b2e] rounded-lg">
-        <div className="text-gray-300 text-center p-4">
-          Generate an itinerary to see the map
-        </div>
-      </div>
-    );
-  }
-
   return (
-    <MapContainer
-      center={[center.lat, center.lng]}
-      zoom={12}
-      style={{ height: '100%', width: '100%' }}
-      ref={setMap}
-      className="map-container"
-    >
-      <TileLayer
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-      />
-      {validPoints.map((point, index) => (
-        <Marker key={index} position={[point.coordinates.lat, point.coordinates.lng]}>
-          <Popup>
-            <div>
-              <h3 className="font-bold">{point.name}</h3>
-              <p>{point.description}</p>
-              <a
-                href={`https://www.google.com/maps/dir/?api=1&destination=${point.coordinates.lat},${point.coordinates.lng}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-blue-500 hover:text-blue-700"
-              >
-                Get Directions
-              </a>
-            </div>
-          </Popup>
-        </Marker>
-      ))}
-    </MapContainer>
+    <div className="map-wrapper-relative" style={{ position: 'relative', height: '100%' }}>
+      {validPoints.length === 0 && (
+        <div
+          className="map-overlay"
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            zIndex: 500,
+            padding: '0.75rem',
+            textAlign: 'center',
+            pointerEvents: 'none',
+            color: '#475569',
+          }}
+        >
+          No points yet — enter a trip to plot the map.
+        </div>
+      )}
+      <MapContainer
+        center={[center.lat, center.lng]}
+        zoom={12}
+        style={{ height: '100%', width: '100%' }}
+        ref={setMap}
+        className="map-container"
+      >
+        <TileLayer
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        />
+        {(validPoints.length === 0
+          ? [{ name: 'Default View', description: 'Enter your trip to see routes', coordinates: { lat: center.lat, lng: center.lng } }]
+          : validPoints
+        ).map((point, index) => (
+          <Marker key={index} position={[point.coordinates.lat, point.coordinates.lng]}>
+            <Popup>
+              <div>
+                <h3 className="font-bold">{point.name}</h3>
+                <p>{point.description}</p>
+                <a
+                  href={`https://www.google.com/maps/dir/?api=1&destination=${point.coordinates.lat},${point.coordinates.lng}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-500 hover:text-blue-700"
+                >
+                  Get Directions
+                </a>
+              </div>
+            </Popup>
+          </Marker>
+        ))}
+      </MapContainer>
+    </div>
   );
 }
 
@@ -221,22 +233,73 @@ function TripForm({ onSubmit, disabled }) {
             </div>
           </div>
         </div>
-        <div className="trip-box">
-          <input 
-            type="text" 
-            name="groqApiKey" 
+        <div className="extras-section">
+          <label className="extras-label">Extra Wishes</label>
+          <textarea
+            name="extraWishes"
             disabled={disabled}
-            defaultValue={process.env.REACT_APP_GROQ_API_KEY || ''}
-            placeholder={process.env.REACT_APP_GROQ_API_KEY ? 'Using API key from .env' : 'Enter your Groq API key'}
+            placeholder="Any special requests, accessibility needs, food preferences, or vibes you want?"
+            className="extras-textarea"
+            rows="3"
           />
-          <label>Groq API Key (optional if set in .env)</label>
+          <div className="famous-places">
+            <label className="extras-label">Famous Places Preference</label>
+            <select name="famousPreference" disabled={disabled} className="famous-select">
+              <option value="city_highlights">Top city highlights</option>
+              <option value="nearby_day_trips">Nearby day trips & must-sees</option>
+              <option value="both">Both city highlights and nearby gems</option>
+              <option value="hidden_gems">Hidden gems over tourist spots</option>
+            </select>
+          </div>
         </div>
-        <label className="api-note">
-          <a href="https://console.groq.com/keys" className="api-link">
-            Get your key
-          </a>
-          <span className="api-info">Your API key is stored locally and never sent to our servers</span>
-        </label>
+        <div className="api-provider-section">
+          <label className="api-provider-label">🤖 Choose AI Provider</label>
+          <div className="api-provider-options">
+            <label className="api-option">
+              <input type="radio" name="apiProvider" value="groq" defaultChecked disabled={disabled} />
+              <div className="option-content">
+                <div className="option-title">⚡ Groq</div>
+                <div className="option-desc">Free & Lightning Fast</div>
+              </div>
+            </label>
+            <label className="api-option">
+              <input type="radio" name="apiProvider" value="gemini" disabled={disabled} />
+              <div className="option-content">
+                <div className="option-title">✨ Google Gemini</div>
+                <div className="option-desc">Powerful & Advanced</div>
+              </div>
+            </label>
+          </div>
+        </div>
+        <div className="api-keys-section">
+          <div className="api-key-group">
+            <label className="api-key-label">⚡ Groq API Key</label>
+            <input 
+              type="text" 
+              name="groqApiKey" 
+              disabled={disabled}
+              defaultValue={process.env.REACT_APP_GROQ_API_KEY || ''}
+              placeholder={process.env.REACT_APP_GROQ_API_KEY ? '✓ Using API key from .env' : 'Paste your Groq API key'}
+              className="api-key-input"
+            />
+            <a href="https://console.groq.com/keys" target="_blank" rel="noopener noreferrer" className="api-help-link">
+              Get Groq key →
+            </a>
+          </div>
+          <div className="api-key-group">
+            <label className="api-key-label">✨ Google Gemini API Key</label>
+            <input 
+              type="text" 
+              name="geminiApiKey" 
+              disabled={disabled}
+              placeholder="Paste your Google Gemini API key"
+              className="api-key-input"
+            />
+            <a href="https://ai.google.dev/tutorials/setup" target="_blank" rel="noopener noreferrer" className="api-help-link">
+              Get Gemini key →
+            </a>
+          </div>
+        </div>
         <button type="submit" disabled={disabled} className="submit-button">
           Generate Itinerary
         </button>
@@ -265,15 +328,14 @@ function Brand({ compact }) {
   return (
     <div className="brand">
       <img
-        src={logo}
+        src={process.env.PUBLIC_URL + '/camera-logo.png'}
         alt="Musafir Not Bhatak Logo"
         className="brand-logo"
-        onError={(e) => { e.target.src = 'https://via.placeholder.com/40'; }}
+        onError={(e) => { e.target.style.display = 'none'; }}
       />
       {!compact && (
         <div className="brand-text">
-          <span className="brand-title">Musafir Not Bhatak</span>
-          <span className="brand-subtitle">AI Travel Planner</span>
+          <span className="brand-title" style={{fontFamily: "'Playfair Display', serif", fontSize: '32px', fontWeight: '900', fontStyle: 'italic', letterSpacing: '1px', background: 'linear-gradient(135deg, #7c3aed 0%, #06b6d4 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text', textShadow: '2px 2px 4px rgba(124, 58, 237, 0.1)', transform: 'skewX(-5deg)'}}>Musafir Not Bhatak</span>
         </div>
       )}
     </div>
@@ -379,6 +441,9 @@ function App() {
     e.preventDefault();
     const currency = e.target.currency.value;
     const budgetAmount = parseFloat(e.target.budget.value);
+    const apiProvider = e.target.apiProvider?.value || 'groq';
+    const extraWishes = (e.target.extraWishes?.value || '').trim();
+    const famousPreference = e.target.famousPreference?.value || 'city_highlights';
     
     // Convert to standard format for API (we'll use original amount but track currency)
     const selectedInterests = Array.from(e.target.querySelectorAll('input[name="interests"]:checked'))
@@ -394,6 +459,11 @@ function App() {
       numberOfPeople: e.target.numberOfPeople.value,
       interests: selectedInterests || 'general travel',
       groqApiKey: e.target.groqApiKey.value || process.env.REACT_APP_GROQ_API_KEY,
+      geminiApiKey: e.target.geminiApiKey.value || '',
+      apiProvider,
+      extraWishes,
+      famousPreference,
+      additionalNotes: `${extraWishes ? `Extra wishes: ${extraWishes}. ` : ''}Famous places preference: ${famousPreference}.`,
     };
     setLoading(true);
     setError(null);
@@ -559,7 +629,7 @@ function App() {
         header {
           display: flex;
           align-items: center;
-          justify-content: space-between;
+          justify-content: center;
           padding: 1.5rem 2rem;
           box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
           background: linear-gradient(135deg, #ffffff 0%, #f0f9ff 100%);
@@ -574,7 +644,7 @@ function App() {
           min-height: 100vh;
         }
         .bg-dark {
-          background-color: #f5f7fa;
+          background-color: transparent;
         }
         .error {
           background-color: #fee2e2;
@@ -587,36 +657,48 @@ function App() {
         }
         .grid {
           display: grid;
-          grid-template-columns: 1fr 1fr;
+          grid-template-columns: 350px 1fr;
           gap: 2rem;
-          height: calc(100vh - 140px);
+          margin-bottom: 2rem;
         }
-        @media (min-width: 1024px) {
+        @media (max-width: 1024px) {
           .grid {
-            grid-template-columns: minmax(400px, 400px) 1fr;
+            grid-template-columns: 1fr;
           }
         }
-        .space-y-8 > * + * {
-          margin-top: 0;
-        }
         .map-container-wrapper {
-          height: 100%;
+          height: 70vh;
+          min-height: 500px;
           width: 100%;
           border-radius: 1rem;
           box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
           overflow: hidden;
           background: #ffffff;
           border: 1px solid #e0e7ff;
+          grid-column: 2;
+          grid-row: 1;
         }
-        .map-container {
-          height: 100% !important;
-          width: 100%;
-          border-radius: 1rem;
+        @media (max-width: 1024px) {
+          .map-container-wrapper {
+            grid-column: 1;
+            grid-row: 1;
+            height: 60vh;
+            min-height: 420px;
+          }
         }
-        .leaflet-container {
-          height: 100% !important;
-          width: 100% !important;
-          border-radius: 1rem;
+        .form-wrapper {
+          grid-column: 1;
+          grid-row: 1;
+        }
+        @media (max-width: 1024px) {
+          .form-wrapper {
+            grid-column: 1;
+            grid-row: 2;
+          }
+        }
+        .itinerary-section {
+          padding: 1rem 0 2.5rem;
+          grid-column: 1 / -1;
         }
         .text-center {
           text-align: center;
@@ -696,6 +778,7 @@ function App() {
           box-sizing: border-box;
           display: flex;
           flex-direction: column;
+          font-family: 'Poppins', sans-serif;
         }
         .login-box h2 {
           margin: 0 0 2rem 0;
@@ -707,6 +790,7 @@ function App() {
           text-align: left;
           font-size: 2.2rem;
           font-weight: 800;
+          font-family: 'Poppins', sans-serif;
         }
         .trip-box {
           position: relative;
@@ -737,11 +821,12 @@ function App() {
           top: 0;
           left: 0;
           padding: 0.75rem 0;
-          font-size: 1rem;
+          font-size: 0.95rem;
           color: #64748b;
           pointer-events: none;
           transition: .3s;
-          font-weight: 600;
+          font-weight: 700;
+          font-family: 'Poppins', sans-serif;
         }
         .trip-box input:focus ~ label,
         .trip-box input:valid ~ label {
@@ -749,7 +834,7 @@ function App() {
           left: 0;
           color: #0ea5e9;
           font-size: 0.8rem;
-          font-weight: 600;
+          font-weight: 700;
         }
         .date-pair, .budget-pair {
           display: grid;
@@ -839,6 +924,189 @@ function App() {
           border-radius: 1rem;
           border: 1px solid #e0e7ff;
         }
+        .api-provider-section {
+          margin-bottom: 2rem;
+          padding: 1.5rem;
+          background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+          border-radius: 0.875rem;
+          border: 2px solid #fcd34d;
+          box-shadow: 0 10px 24px rgba(251, 191, 36, 0.2);
+        }
+        .api-provider-label {
+          font-size: 0.9rem;
+          font-weight: 800;
+          color: #92400e;
+          text-transform: uppercase;
+          letter-spacing: 0.8px;
+          display: block;
+          margin-bottom: 1rem;
+          font-family: 'Poppins', sans-serif;
+        }
+        .api-provider-options {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+          gap: 1rem;
+          align-items: stretch;
+        }
+        .api-option {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          gap: 0.65rem;
+          padding: 1.4rem;
+          background: #fffef9;
+          border: 2px solid #fcd34d;
+          border-radius: 0.9rem;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          font-family: 'Poppins', sans-serif;
+          min-height: 140px;
+          text-align: center;
+        }
+        .api-option:hover {
+          background: #fff4d7;
+          border-color: #f59e0b;
+          box-shadow: 0 12px 22px rgba(245, 158, 11, 0.25);
+          transform: translateY(-3px) scale(1.01);
+        }
+        .api-option input[type="radio"] {
+          width: 22px;
+          height: 22px;
+          cursor: pointer;
+          accent-color: #d97706;
+          flex-shrink: 0;
+          margin: 0;
+        }
+        .option-content {
+          display: flex;
+          flex-direction: column;
+          gap: 0.1rem;
+        }
+        .option-title {
+          font-size: 1.05rem;
+          font-weight: 800;
+          color: #1f2937;
+          font-family: 'Poppins', sans-serif;
+        }
+        .option-desc {
+          font-size: 0.9rem;
+          color: #b45309;
+          font-weight: 600;
+          font-family: 'Poppins', sans-serif;
+        }
+        .extras-section {
+          margin-bottom: 1.75rem;
+          padding: 1.5rem;
+          background: linear-gradient(135deg, #f8faff 0%, #eef2ff 100%);
+          border-radius: 0.875rem;
+          border: 1px solid #e0e7ff;
+        }
+        .extras-label {
+          font-size: 0.95rem;
+          font-weight: 800;
+          color: #1e3a8a;
+          display: block;
+          margin-bottom: 0.75rem;
+          font-family: 'Poppins', sans-serif;
+        }
+        .extras-textarea {
+          width: 100%;
+          padding: 0.9rem 1rem;
+          font-size: 0.95rem;
+          color: #1f2937;
+          border: 1.5px solid #cbd5e1;
+          border-radius: 0.75rem;
+          background: #ffffff;
+          outline: none;
+          resize: vertical;
+          min-height: 96px;
+          box-sizing: border-box;
+          font-family: 'Poppins', sans-serif;
+          transition: all 0.3s ease;
+        }
+        .extras-textarea:focus {
+          border-color: #6366f1;
+          box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+        }
+        .famous-places {
+          margin-top: 1rem;
+          display: flex;
+          flex-direction: column;
+          gap: 0.5rem;
+        }
+        .famous-select {
+          width: 100%;
+          padding: 0.85rem 1rem;
+          font-size: 0.95rem;
+          border: 1.5px solid #cbd5e1;
+          border-radius: 0.75rem;
+          background: #ffffff;
+          color: #1f2937;
+          outline: none;
+          font-family: 'Poppins', sans-serif;
+          transition: all 0.3s ease;
+        }
+        .famous-select:focus {
+          border-color: #6366f1;
+          box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+        }
+          .api-keys-section {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, #eff6ff 0%, #f0f9ff 100%);
+            border-radius: 0.875rem;
+            border: 2px solid #bfdbfe;
+          }
+          .api-provider-options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+          }
+          .api-option {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.25rem;
+            background: #ffffff;
+            border: 2px solid #fcd34d;
+            border-radius: 0.75rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+          }
+          .api-option:hover {
+            background: #fef9e7;
+            border-color: #fbbf24;
+            box-shadow: 0 4px 12px rgba(251, 191, 36, 0.2);
+          }
+          .option-content {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+          }
+          .option-desc {
+            font-size: 0.85rem;
+            color: #92400e;
+            font-weight: 500;
+            font-family: 'Poppins', sans-serif;
+          }
+            border-color: #e5e7eb;
+          }
+          .api-help-link {
+            display: inline-block;
+            margin-top: 0.75rem;
+            font-size: 0.9rem;
+            color: #3b82f6;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+          }
+          .api-help-link:hover {
+            color: #1e40af;
+            text-decoration: underline;
+          }
         .interests-label {
           font-size: 1.1rem;
           font-weight: 700;
@@ -915,10 +1183,6 @@ function App() {
           transform: translateY(-2px);
           box-shadow: 0 6px 20px rgba(124, 58, 237, 0.4);
         }
-          border-radius: 0.5rem;
-          font-weight: 600;
-          box-shadow: 0 4px 12px rgba(14, 165, 233, 0.3);
-        }
         .submit-button:hover:not(:disabled) {
           background: linear-gradient(135deg, #0284c7 0%, #0891b2 100%);
           box-shadow: 0 6px 16px rgba(14, 165, 233, 0.4);
@@ -945,8 +1209,8 @@ function App() {
         }
         .itinerary-header {
           text-align: left;
-          margin-bottom: 2rem;
-          padding-bottom: 1.5rem;
+          margin-bottom: 1.25rem;
+          padding-bottom: 1rem;
           border-bottom: 2px solid #e0e7ff;
         }
         .itinerary-header h3 {
@@ -1057,7 +1321,7 @@ function App() {
         <div className="container">
           {error && <div className="error">{error}</div>}
           <div className="grid">
-            <div className="space-y-8">
+            <div className="form-wrapper">
               <TripForm onSubmit={handleTripSubmit} disabled={loading} />
               {loading && (
                 <div className="text-center py-4">
@@ -1065,16 +1329,18 @@ function App() {
                   <p className="mt-2 text-gray-400">Generating your perfect itinerary...</p>
                 </div>
               )}
-              <ItineraryDisplay
-                itinerary={itinerary}
-                tripData={tripData}
-                onItineraryUpdate={handleItineraryUpdate}
-                setHighlighted={setHighlighted}
-              />
             </div>
             <div className="map-container-wrapper">
               <TripMap points={mapPoints} />
             </div>
+          </div>
+          <div className="itinerary-section">
+            <ItineraryDisplay
+              itinerary={itinerary}
+              tripData={tripData}
+              onItineraryUpdate={handleItineraryUpdate}
+              setHighlighted={setHighlighted}
+            />
           </div>
         </div>
       </div>
@@ -1130,83 +1396,143 @@ Start Date: ${formData.startDate}
 End Date: ${formData.endDate}
 Budget: ${formData.budget} USD for ${formData.numberOfPeople} people
 Interests: ${formData.interests}
-Additional Notes: ${formData.additionalNotes}
+Famous Places Preference: ${formData.famousPreference}
+Extra Wishes: ${formData.extraWishes || 'None'}
+Additional Notes: ${formData.additionalNotes || 'None'}
   `;
 
   try {
-    const apiResponse = await fetch('https://api.groq.com/openai/v1/chat/completions', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${formData.groqApiKey}`,
-      },
-      body: JSON.stringify({
-        messages: [
-          { role: 'system', content: systemPrompt },
-          { role: 'user', content: userPrompt },
-        ],
-        model: 'llama-3.1-8b-instant',
-        temperature: 0.7,
-        max_tokens: 4096,
-        stream: false,
-        response_format: { type: "json_object" }
-      }),
-    });
+    const apiProvider = formData.apiProvider || 'groq';
+    let apiResponse;
 
-    if (!apiResponse.ok) {
-      const errorData = await apiResponse.json();
-      console.error('API error:', errorData);
-      throw new Error(errorData.error?.message || 'API request failed');
-    }
-
-    const data = await apiResponse.json();
-    const generatedContent = data.choices[0].message.content;
-    console.log('Raw API response:', generatedContent);
-
-    // Try to parse directly as JSON first (since we're using json_object format)
-    try {
-      const parsedResult = JSON.parse(generatedContent);
-      if (!parsedResult.itinerary || !Array.isArray(parsedResult.itinerary.days)) {
-        throw new Error('Invalid itinerary structure: missing itinerary.days array');
+    if (apiProvider === 'gemini') {
+      // Google Gemini API
+      const geminiKey = formData.geminiApiKey;
+      if (!geminiKey) {
+        throw new Error('Please provide a Google Gemini API key. Get one at https://ai.google.dev/tutorials/setup');
       }
-      console.log('Parsed JSON:', parsedResult);
-      return {
-        itinerary: parsedResult.itinerary,
-        locations: parsedResult.locations || [],
-      };
-    } catch (e) {
-      console.error('JSON parsing error:', e.message, 'Raw content:', generatedContent);
-      const fallbackItinerary = {
-        days: [
-          {
-            date: formData.startDate,
-            activities: [
-              {
-                name: `${formData.destination} City Center`,
-                description: `Explore the main area of ${formData.destination}`,
-                time: '09:00 AM',
-                price: 0,
-                coordinates: formData.destination.toLowerCase().includes('bang') ? [12.97, 77.59] : [0, 0],
-              },
-            ],
-            meals: [
-              {
-                name: 'Local Restaurant',
-                type: 'Lunch',
-                description: `Enjoy local cuisine in ${formData.destination}`,
-                time: '12:00 PM',
-                price: 10,
-                coordinates: formData.destination.toLowerCase().includes('bang') ? [12.97, 77.59] : [0, 0],
-              },
-            ],
-          },
-        ],
-      };
-      return { itinerary: fallbackItinerary, locations: [] };
+
+      apiResponse = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${geminiKey}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          contents: [
+            {
+              parts: [
+                { text: systemPrompt + '\n\n' + userPrompt }
+              ]
+            }
+          ],
+          generationConfig: {
+            temperature: 0.7,
+            maxOutputTokens: 4096,
+          }
+        }),
+      });
+
+      if (!apiResponse.ok) {
+        const errorData = await apiResponse.json();
+        console.error('Gemini API error:', errorData);
+        throw new Error(errorData.error?.message || 'Gemini API request failed');
+      }
+
+      const data = await apiResponse.json();
+      const generatedContent = data.candidates?.[0]?.content?.parts?.[0]?.text;
+
+      if (!generatedContent) {
+        throw new Error('No response from Gemini API');
+      }
+
+      console.log('Gemini response:', generatedContent);
+
+      try {
+        const parsedResult = JSON.parse(generatedContent);
+        if (!parsedResult.itinerary || !Array.isArray(parsedResult.itinerary.days)) {
+          throw new Error('Invalid itinerary structure from Gemini');
+        }
+        return {
+          itinerary: parsedResult.itinerary,
+          locations: parsedResult.locations || [],
+        };
+      } catch (parseError) {
+        const jsonMatch = generatedContent.match(/\{[\s\S]*\}/);
+        if (jsonMatch) {
+          const parsedResult = JSON.parse(jsonMatch[0]);
+          if (!parsedResult.itinerary || !Array.isArray(parsedResult.itinerary.days)) {
+            throw new Error('Invalid itinerary structure from Gemini');
+          }
+          return {
+            itinerary: parsedResult.itinerary,
+            locations: parsedResult.locations || [],
+          };
+        }
+        throw new Error('Failed to parse Gemini response as JSON');
+      }
+    } else {
+      // Groq API (default)
+      const groqKey = formData.groqApiKey || process.env.REACT_APP_GROQ_API_KEY;
+      if (!groqKey) {
+        throw new Error('Please provide a Groq API key or set REACT_APP_GROQ_API_KEY in .env. Get one at https://console.groq.com/keys');
+      }
+
+      apiResponse = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${groqKey}`,
+        },
+        body: JSON.stringify({
+          messages: [
+            { role: 'system', content: systemPrompt },
+            { role: 'user', content: userPrompt },
+          ],
+          model: 'llama-3.1-8b-instant',
+          temperature: 0.7,
+          max_tokens: 4096,
+          stream: false,
+          response_format: { type: "json_object" }
+        }),
+      });
+
+      if (!apiResponse.ok) {
+        const errorData = await apiResponse.json();
+        console.error('Groq API error:', errorData);
+        throw new Error(errorData.error?.message || 'Groq API request failed');
+      }
+
+      const data = await apiResponse.json();
+      const generatedContent = data.choices[0].message.content;
+      console.log('Groq response:', generatedContent);
+
+      try {
+        const parsedResult = JSON.parse(generatedContent);
+        if (!parsedResult.itinerary || !Array.isArray(parsedResult.itinerary.days)) {
+          throw new Error('Invalid itinerary structure from Groq');
+        }
+        return {
+          itinerary: parsedResult.itinerary,
+          locations: parsedResult.locations || [],
+        };
+      } catch (parseError) {
+        const jsonMatch = generatedContent.match(/\{[\s\S]*\}/);
+        if (jsonMatch) {
+          const parsedResult = JSON.parse(jsonMatch[0]);
+          if (!parsedResult.itinerary || !Array.isArray(parsedResult.itinerary.days)) {
+            throw new Error('Invalid itinerary structure from Groq');
+          }
+          return {
+            itinerary: parsedResult.itinerary,
+            locations: parsedResult.locations || [],
+          };
+        }
+        throw new Error('Failed to parse Groq response as JSON');
+      }
     }
-  } catch (e) {
-    console.error('Fetch error:', e);
-    throw e;
+  } catch (error) {
+    console.error('Error generating itinerary:', error);
+    throw error;
   }
 }
 
