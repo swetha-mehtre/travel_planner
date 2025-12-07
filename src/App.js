@@ -446,21 +446,22 @@ function App() {
   return (
     <>
       <style>{`
-        html, body {
+        body {
           height: 100%;
           margin: 0;
           padding: 0;
-          background-color: #1a1b2e;
-          color: #ffffff;
-          font-family: 'Arial', sans-serif;
+          background-color: #f5f7fa;
+          color: #1a202c;
+          font-family: 'Poppins', 'Segoe UI', sans-serif;
         }
         header {
           display: flex;
           align-items: center;
           justify-content: space-between;
           padding: 1.5rem 2rem;
-          box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-          background-color: #1a1b2e;
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+          background: linear-gradient(135deg, #ffffff 0%, #f0f9ff 100%);
+          border-bottom: 1px solid #e0e7ff;
         }
         .container {
           max-width: calc(100vw - 2cm);
@@ -472,20 +473,21 @@ function App() {
           min-height: 100vh;
         }
         .bg-dark {
-          background-color: #1a1b2e;
+          background-color: #f5f7fa;
         }
         .error {
-          background-color: #7f1d1d;
-          border: 1px solid #b91c1c;
-          color: #fca5a5;
+          background-color: #fee2e2;
+          border: 1px solid #fecaca;
+          color: #991b1b;
           padding: 0.75rem 1rem;
-          border-radius: 0.25rem;
+          border-radius: 0.5rem;
           margin-bottom: 1rem;
         }
         .grid {
           display: grid;
-          grid-template-columns: minmax(400px, 400px) 1fr;
-          gap: 1cm;
+          grid-template-columns: 380px 1fr;
+          gap: 1.5rem;
+          height: calc(100vh - 120px);
         }
         @media (min-width: 1024px) {
           .grid {
@@ -496,12 +498,13 @@ function App() {
           margin-top: 2rem;
         }
         .map-container-wrapper {
-          height: 600px;
+          height: 100%;
           width: 100%;
-          border-radius: 0.5rem;
-          box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+          border-radius: 1rem;
+          box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
           overflow: hidden;
           background: #ffffff;
+          border: 1px solid #e0e7ff;
         }
         .map-container {
           height: 100% !important;
@@ -576,99 +579,122 @@ function App() {
           line-height: 1;
         }
         .login-box {
-          width: 400px;
-          padding: 40px;
-          background: #1a1b2e;
+          background: linear-gradient(135deg, #ffffff 0%, #f8faff 100%);
+          padding: 2rem;
+          border: 1px solid #e0e7ff;
+          box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+          border-radius: 1rem;
+          overflow-y: auto;
+          max-height: 100%;
+          width: 100%;
           box-sizing: border-box;
-          box-shadow: 0 15px 25px rgba(0,0,0,.6);
-          border-radius: 10px;
         }
         .login-box h2 {
-          margin: 0 0 30px;
+          margin: 0 0 1.5rem 0;
           padding: 0;
-          color: #fff;
-          text-align: center;
-          font-size: 2rem;
+          color: #1a202c;
+          text-align: left;
+          font-size: 1.5rem;
+          font-weight: 700;
         }
         .trip-box {
           position: relative;
         }
         .trip-box input {
           width: 100%;
-          padding: 10px 0;
-          font-size: 16px;
-          color: #fff;
-          margin-bottom: 30px;
+          padding: 0.75rem 0;
+          font-size: 0.95rem;
+          color: #1a202c;
+          margin-bottom: 1.5rem;
           border: none;
-          border-bottom: 1px solid #fff;
+          border-bottom: 2px solid #cbd5e0;
           outline: none;
           background: transparent;
+          transition: border-color 0.3s;
         }
         .trip-box input:disabled {
           background: transparent;
-          color: #ccc;
+          color: #a0aec0;
+          border-bottom-color: #e2e8f0;
+        }
+        .trip-box input:focus {
+          border-bottom-color: #0ea5e9;
         }
         .trip-box label {
           position: absolute;
           top: 0;
           left: 0;
-          padding: 10px 0;
-          font-size: 16px;
-          color: #fff;
+          padding: 0.75rem 0;
+          font-size: 0.9rem;
+          color: #64748b;
           pointer-events: none;
-          transition: .5s;
+          transition: .3s;
         }
         .trip-box input:focus ~ label,
         .trip-box input:valid ~ label {
-          top: -20px;
+          top: -1.5rem;
           left: 0;
-          color: #fff;
-          font-size: 12px;
+          color: #0ea5e9;
+          font-size: 0.8rem;
+          font-weight: 600;
         }
         .date-pair, .budget-pair {
           display: flex;
           justify-content: space-between;
-          margin-bottom: 10px;
+          margin-bottom: 0.5rem;
+          gap: 1rem;
         }
         .date-pair .trip-box, .budget-pair .trip-box {
-          width: 48%;
+          width: 100%;
+          margin-bottom: 0;
         }
         .trip-box input[type="date"] {
-          text-align: center;
+          text-align: left;
         }
         .trip-box input[type="date"]::-webkit-calendar-picker-indicator {
-          filter: invert(1);
+          filter: none;
+          cursor: pointer;
         }
         .api-note {
           display: block;
-          margin-top: 0.25rem;
-          font-size: 0.75rem;
-          color: #a0aec0;
+          margin-top: 1rem;
+          font-size: 0.8rem;
+          color: #64748b;
         }
         .api-link {
-          color: #03e9f4;
+          color: #0ea5e9;
           text-decoration: underline;
           margin-right: 0.5rem;
+          font-weight: 600;
         }
         .api-info {
-          font-size: 0.75rem;
-          color: #a0aec0;
+          font-size: 0.8rem;
+          color: #64748b;
         }
         .submit-button {
           position: relative;
           display: inline-block;
-          padding: 10px 20px;
-          color: #03e9f4;
-          font-size: 16px;
+          width: 100%;
+          padding: 0.75rem 1.5rem;
+          color: #fff;
+          font-size: 1rem;
           text-decoration: none;
           text-transform: uppercase;
           overflow: hidden;
-          transition: .5s;
-          margin-top: 40px;
-          letter-spacing: 4px;
-          background: transparent;
+          transition: .3s;
+          margin-top: 1.5rem;
+          letter-spacing: 1px;
+          background: linear-gradient(135deg, #0ea5e9 0%, #06b6d4 100%);
           border: none;
           cursor: pointer;
+          border-radius: 0.5rem;
+          font-weight: 600;
+          box-shadow: 0 4px 12px rgba(14, 165, 233, 0.3);
+        }
+        .submit-button:hover:not(:disabled) {
+          background: linear-gradient(135deg, #0284c7 0%, #0891b2 100%);
+          box-shadow: 0 6px 16px rgba(14, 165, 233, 0.4);
+          transform: translateY(-2px);
         }
         .submit-button:disabled {
           opacity: 0.5;
@@ -678,9 +704,9 @@ function App() {
           border-radius: 50%;
         }
         .itinerary-display {
-          background: #16213e;
-          border-radius: 10px;
-          padding: 20px;
+          background: #ffffff;
+          border-radius: 1rem;
+          padding: 1.5rem;
           margin-top: 20px;
           max-height: 600px;
           overflow-y: auto;
@@ -721,18 +747,20 @@ function App() {
           display: flex;
           align-items: flex-start;
           gap: 15px;
-          padding: 12px;
-          background: rgba(255, 255, 255, 0.05);
-          border-radius: 8px;
+          padding: 1rem;
+          background: #f8faff;
+          border-radius: 0.5rem;
+          border-left: 4px solid #06b6d4;
           cursor: pointer;
-          transition: background 0.2s;
+          transition: all 0.2s;
         }
         .schedule-item:hover {
-          background: rgba(3, 233, 244, 0.1);
+          background: #f0f9ff;
+          box-shadow: 0 2px 8px rgba(6, 182, 212, 0.1);
         }
         .schedule-time {
           min-width: 60px;
-          color: #03e9f4;
+          color: #0ea5e9;
           font-weight: bold;
           font-size: 0.9rem;
         }
@@ -740,32 +768,33 @@ function App() {
           flex: 1;
         }
         .activity-name, .meal-name {
-          color: #fff;
-          margin: 0 0 5px 0;
-          font-size: 1rem;
+          color: #1a202c;
+          margin: 0 0 0.25rem 0;
+          font-size: 0.95rem;
           font-weight: 600;
         }
         .meal-name {
-          color: #f4d03f;
+          color: #d97706;
         }
         .activity-description, .meal-description {
-          color: #a0aec0;
-          margin: 0 0 5px 0;
-          font-size: 0.9rem;
+          color: #64748b;
+          margin: 0 0 0.25rem 0;
+          font-size: 0.85rem;
           line-height: 1.4;
         }
         .price-tag {
-          background: #27ae60;
+          background: linear-gradient(135deg, #10b981 0%, #059669 100%);
           color: white;
-          padding: 2px 8px;
-          border-radius: 12px;
-          font-size: 0.8rem;
-          font-weight: bold;
+          padding: 0.25rem 0.5rem;
+          border-radius: 0.25rem;
+          font-size: 0.75rem;
+          font-weight: 700;
         }
         .leaflet-popup-content-wrapper {
           background: #ffffff;
-          border-radius: 8px;
-          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+          border-radius: 0.5rem;
+          box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+          border: 1px solid #e0e7ff;
         }
         .leaflet-popup-tip {
           background: #ffffff;
