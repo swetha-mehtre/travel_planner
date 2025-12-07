@@ -710,7 +710,7 @@ function App() {
           grid-row: 1;
           overflow-y: auto;
           max-height: 100%;
-          background-image: url('${process.env.PUBLIC_URL}/travel-theme.png');
+          background-image: url('${process.env.PUBLIC_URL}/interests-theme.png');
           background-size: cover;
           background-position: center;
           background-attachment: local;
@@ -726,7 +726,7 @@ function App() {
           left: 0;
           right: 0;
           bottom: 0;
-          background: linear-gradient(135deg, rgba(255, 255, 255, 0.50) 0%, rgba(245, 240, 232, 0.55) 100%);
+          background: linear-gradient(135deg, rgba(255, 255, 255, 0.25) 0%, rgba(245, 240, 232, 0.30) 100%);
           pointer-events: none;
           border-radius: 1.5rem;
         }
