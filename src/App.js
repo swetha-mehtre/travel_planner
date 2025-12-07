@@ -144,7 +144,14 @@ function TripForm({ onSubmit, disabled }) {
         <div className="budget-pair">
           <div className="trip-box">
             <input type="number" name="budget" required disabled={disabled} />
-            <label>Budget (USD)</label>
+            <label>Budget Amount</label>
+          </div>
+          <div className="trip-box">
+            <select name="currency" disabled={disabled} className="currency-select">
+              <option value="USD">USD ($)</option>
+              <option value="INR">INR (₹)</option>
+            </select>
+            <label>Currency</label>
           </div>
           <div className="trip-box">
             <input type="number" name="numberOfPeople" min="1" required disabled={disabled} />
@@ -217,6 +224,8 @@ function Brand({ compact }) {
 function ItineraryDisplay({ itinerary, tripData, onItineraryUpdate, setHighlighted }) {
   if (!itinerary || itinerary.days.length === 0) return null;
 
+  const currencySymbol = tripData?.currency === 'INR' ? '₹' : '$';
+
   return (
     <div className="itinerary-display">
       <div className="itinerary-header">
@@ -224,7 +233,7 @@ function ItineraryDisplay({ itinerary, tripData, onItineraryUpdate, setHighlight
         <p className="itinerary-dates">
           {tripData?.startDate} - {tripData?.endDate}
         </p>
-        <p className="itinerary-budget">Budget: ${tripData?.budget || 0} for {tripData?.numberOfPeople || 1} people</p>
+        <p className="itinerary-budget">Budget: {currencySymbol}{tripData?.budget || 0} for {tripData?.numberOfPeople || 1} people</p>
       </div>
       {itinerary.days.map((day, dayIndex) => (
         <div key={dayIndex} className="itinerary-day">
@@ -238,7 +247,7 @@ function ItineraryDisplay({ itinerary, tripData, onItineraryUpdate, setHighlight
                     {activity.name}
                   </h5>
                   <p className="activity-description">{activity.description}</p>
-                  {activity.price && <span className="price-tag">${activity.price}</span>}
+                  {activity.price && <span className="price-tag">{currencySymbol}{activity.price}</span>}
                 </div>
               </div>
             ))}
@@ -250,7 +259,7 @@ function ItineraryDisplay({ itinerary, tripData, onItineraryUpdate, setHighlight
                     {meal.name} ({meal.type})
                   </h5>
                   <p className="meal-description">{meal.description}</p>
-                  {meal.price && <span className="price-tag">${meal.price}</span>}
+                  {meal.price && <span className="price-tag">{currencySymbol}{meal.price}</span>}
                 </div>
               </div>
             ))}
@@ -268,6 +277,7 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [highlighted, setHighlighted] = useState(null);
+  const [currency, setCurrency] = useState('USD');
 
   // Shared coordinate validation
   const validateCoordinates = (coords) => {
@@ -285,11 +295,16 @@ function App() {
 
   const handleTripSubmit = async (e) => {
     e.preventDefault();
+    const currency = e.target.currency.value;
+    const budgetAmount = parseFloat(e.target.budget.value);
+    
+    // Convert to standard format for API (we'll use original amount but track currency)
     const formData = {
       destination: e.target.destination.value,
       startDate: e.target.startDate.value,
       endDate: e.target.endDate.value,
-      budget: e.target.budget.value,
+      budget: budgetAmount,
+      currency: currency,
       numberOfPeople: e.target.numberOfPeople.value,
       interests: e.target.interests.value,
       groqApiKey: e.target.groqApiKey.value || process.env.REACT_APP_GROQ_API_KEY,
@@ -299,6 +314,7 @@ function App() {
     setHighlighted(null);
     try {
       setTripData(formData);
+      setCurrency(formData.currency);
       const result = await generateItinerary(formData);
       if (!result.itinerary || !result.itinerary.days) {
         throw new Error('Invalid itinerary data from API');
@@ -662,6 +678,30 @@ function App() {
         .trip-box input[type="date"]::-webkit-calendar-picker-indicator {
           filter: none;
           cursor: pointer;
+        }
+        .currency-select {
+          width: 100%;
+          padding: 0.75rem 0;
+          font-size: 1.1rem;
+          color: #1a202c;
+          margin-bottom: 1.5rem;
+          border: none;
+          border-bottom: 2px solid #cbd5e0;
+          outline: none;
+          background: transparent;
+          transition: border-color 0.3s;
+          cursor: pointer;
+        }
+        .currency-select:hover {
+          border-bottom-color: #0ea5e9;
+        }
+        .currency-select:focus {
+          border-bottom-color: #0ea5e9;
+        }
+        .currency-select option {
+          background: #ffffff;
+          color: #1a202c;
+          padding: 0.5rem;
         }
         .api-note {
           display: block;
