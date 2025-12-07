@@ -116,7 +116,8 @@ Open source - available for personal and educational use.
 ## 👤 Author
 
 **Swetha Mehtre**  
-GitHub: [@swetha-mehtre](https://github.com/swetha-mehtre)
+- GitHub: [https://github.com/swetha-mehtre](https://github.com/swetha-mehtre)
+- LinkedIn: [https://www.linkedin.com/in/swetha-mehtre-6619442a9/](https://www.linkedin.com/in/swetha-mehtre-6619442a9/)
 
 ## 🙏 Credits
 
