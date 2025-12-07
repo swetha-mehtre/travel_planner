@@ -710,7 +710,7 @@ function App() {
           grid-row: 1;
           overflow-y: auto;
           max-height: 100%;
-          background-image: url('${process.env.PUBLIC_URL}/interests-theme.png');
+          background-image: url('${process.env.PUBLIC_URL}/images.jpeg');
           background-size: 300px 300px;
           background-position: top left;
           background-repeat: repeat;
@@ -982,7 +982,7 @@ function App() {
           left: 0;
           right: 0;
           bottom: 0;
-          background: linear-gradient(135deg, rgba(248, 250, 255, 0.60) 0%, rgba(240, 244, 255, 0.65) 100%);
+          background: linear-gradient(135deg, rgba(248, 250, 255, 0.30) 0%, rgba(240, 244, 255, 0.35) 100%);
           pointer-events: none;
           border-radius: 1rem;
         }
